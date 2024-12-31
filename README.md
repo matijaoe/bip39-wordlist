@@ -41,6 +41,10 @@ Whole bunch of BIP-39 english wordlists in different formats.
 - [BTC Guide: `bip-39-btcguide.pdf`](pdf/non-numbered/bip-39-btcguide.pdf)
 - [Blockplate: `bip-39-single-page-blockplate.pdf`](pdf/non-numbered/bip-39-single-page-blockplate.pdf)
 
+#### Diceware
+- [Binary to word lookup table: `bip-39-binary-to-word-lookup-table.pdf`](pdf/diceware/bip-39-binary-to-word-lookup-table.pdf)
+- [BitBox: Diceware lookup table: `bip-39-diceware-lookup-table-bitbox.pdf`](pdf/diceware/bip-39-diceware-lookup-table-bitbox.pdf)
+
 ## License
 
 This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. 
