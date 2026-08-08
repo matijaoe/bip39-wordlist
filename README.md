@@ -105,6 +105,9 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 - [`hex-coldcard.pdf`](wordlists/pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages, US Letter - [source](https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist.pdf)
 - [`hex-moonsettler.pdf`](wordlists/pdf/hex/bip-39-hex-moonsettler.pdf) - 1 page, A4 - [source](https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf)
+- [`hex-dictionary.pdf`](wordlists/pdf/hex/bip-39-hex-dictionary.pdf) - 3 pages, US Letter, horizontal
+  - numbered `100` to `8FF`, not `000` to `7FF`: the leading digit is the block of 256, so subtract `100` for the index
+  - printed from a spreadsheet, which turned `true` into `TRUE` at `84A` and `false` into `FALSE` at `392`
 
 #### Binary (11 bits, 0 to 2047)
 
