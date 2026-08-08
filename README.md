@@ -39,7 +39,7 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ### `.txt`
 
-- [`bip-39-english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, verbatim
+- [`bip-39-english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, unchanged
 - [`bip-39-oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
 - [`bip-39-decimal.txt`](txt/bip-39-decimal.txt) - number and word, from 1
 - [`bip-39-index.txt`](txt/bip-39-index.txt) - index and word, from 0
@@ -49,36 +49,36 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 #### Decimal — 1 to 2048
 
-- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf)
-- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf)
-- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf)
-- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf)
-- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf)
-- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf)
-- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf)
+- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page
+- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page
+- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages
+- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages
+- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages
+- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page
+- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages
 
 #### Index — 0 to 2047
 
-- [Coldbit](pdf/index/bip-39-index-coldbit.pdf)
+- [Coldbit](pdf/index/bip-39-index-coldbit.pdf) - 1 page
 
 #### Hexadecimal — 000 to 7FF
 
-- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf)
+- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages
 
 #### Binary — 11 bits, 0 to 2047
 
-- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - index, word and 11-bit binary
-- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - grid in blocks of 64
+- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, one row per word
+- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, 64 words per column
 
 #### Diceware
 
-- [BitBox02](pdf/diceware/bip-39-diceware-bitbox02.pdf) - five d6 rolls rerolling 5 and 6, then a sixth roll or coin flip
-- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 11 bits, from coin flips or dice
+- [BitBox](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, five dice rolls and a coin flip
+- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, eleven bits from coins or dice
 
 #### Plain — no numbering
 
-- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf)
-- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf)
+- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page
+- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages
 
 ## License
 
