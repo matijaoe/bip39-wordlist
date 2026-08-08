@@ -19,7 +19,7 @@ sums=$(command -v sha256sum >/dev/null && echo "sha256sum -c" || echo "shasum -c
 out=$($sums SHA256SUMS 2>&1 | grep -v ': OK$' || true)
 [ -z "$out" ] && note "recorded hashes still match" "ok" || { note "recorded hashes still match" "FAIL"; echo "$out" | while read -r l; do bad "$l"; done; fail=1; }
 
-diff=$(diff <(cut -c67- SHA256SUMS | sort) <(find pdf txt json -type f ! -name '.DS_Store' | sort) || true)
+diff=$(diff <(cut -c67- SHA256SUMS | sort) <(find wordlists -type f ! -name '.DS_Store' | sort) || true)
 [ -z "$diff" ] && note "every file is recorded in SHA256SUMS" "ok" || { note "every file is recorded in SHA256SUMS" "FAIL"; echo "$diff" | while read -r l; do bad "$l"; done; fail=1; }
 
 miss=""

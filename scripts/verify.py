@@ -78,7 +78,7 @@ def read(path):
 
 
 def lang_path(lang):
-    return f"txt/lang/bip-39-{lang}.txt"
+    return f"wordlists/txt/lang/bip-39-{lang}.txt"
 
 
 group("upstream wordlists")
@@ -94,7 +94,7 @@ check("every word is 3 to 8 letters", all(3 <= len(w) <= 8 and w.isalpha() for w
 
 group("file shape")
 for name in ["decimal", "index", "hex", "binary", "oneline"] + UPSTREAM_LANGS:
-    path = lang_path(name) if name in UPSTREAM_LANGS else f"txt/bip-39-{name}.txt"
+    path = lang_path(name) if name in UPSTREAM_LANGS else f"wordlists/txt/bip-39-{name}.txt"
     raw = (ROOT / path).read_text()
     label = pathlib.Path(path).name
     check(f"{label} ends with exactly one newline",
@@ -106,35 +106,35 @@ for name in ["decimal", "index", "hex", "binary", "oneline"] + UPSTREAM_LANGS:
               f"found {len(raw.splitlines())}")
 
 group("derived txt")
-one = (ROOT / "txt/bip-39-oneline.txt").read_text().split()
+one = (ROOT / "wordlists/txt/bip-39-oneline.txt").read_text().split()
 check("oneline.txt has the same words in order", one == words)
 
-rows = [ln.split() for ln in read("txt/bip-39-decimal.txt")]
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-decimal.txt")]
 check("decimal.txt numbers from 1", [r[0] for r in rows] == [str(i + 1) for i in range(2048)])
 check("decimal.txt words match", [r[1] for r in rows] == words)
 
-rows = [ln.split() for ln in read("txt/bip-39-index.txt")]
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-index.txt")]
 check("index.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])
 check("index.txt words match", [r[1] for r in rows] == words)
 
-rows = [ln.split() for ln in read("txt/bip-39-hex.txt")]
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-hex.txt")]
 check("hex.txt values from 000 to 7FF", [r[0] for r in rows] == [f"{i:03X}" for i in range(2048)])
 check("hex.txt words match", [r[1] for r in rows] == words)
 
-rows = [ln.split() for ln in read("txt/bip-39-binary.txt")]
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-binary.txt")]
 check("binary.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])
 check("binary.txt bits are the 11 bit index", [r[1] for r in rows] == [format(i, "011b") for i in range(2048)])
 check("binary.txt words match", [r[2] for r in rows] == words)
 
 group("json")
-data = json.loads((ROOT / "json/bip-39-array.json").read_text())
+data = json.loads((ROOT / "wordlists/json/bip-39-array.json").read_text())
 check("array.json is the words in order", data == words)
 
-data = json.loads((ROOT / "json/bip-39-tuples.json").read_text())
+data = json.loads((ROOT / "wordlists/json/bip-39-tuples.json").read_text())
 check("tuples.json is [index, binary, word]",
       data == [[i, format(i, "011b"), w] for i, w in enumerate(words)])
 
-data = json.loads((ROOT / "json/bip-39-records.json").read_text())
+data = json.loads((ROOT / "wordlists/json/bip-39-records.json").read_text())
 check("records.json fields are consistent",
       data == [{"index": i, "order": i + 1, "binary": format(i, "011b"), "word": w}
                for i, w in enumerate(words)])
