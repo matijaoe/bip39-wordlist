@@ -64,7 +64,9 @@ binary.txt       0  00000000000  abandon
 #### Decimal (1 to 2048)
 
 - [`decimal-bitplates.pdf`](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page, A4 - [source](https://www.bitplates.com/uploads/b/e5142000-c8c3-11ea-8d36-7f18722a8965/1753b200-c132-11ed-8ccc-bf9df506f69a.pdf)
-- [`decimal-coinplate.pdf`](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page, A4 - [source](https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf)
+- [`decimal-coinplate-1p.pdf`](pdf/decimal/bip-39-decimal-coinplate-1p.pdf) - 1 page, A4 - [source](https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf)
+- [`decimal-coinplate-2p.pdf`](pdf/decimal/bip-39-decimal-coinplate-2p.pdf) - 2 pages, A4 - [source](https://getcoinplate.com/wp-content/uploads/2022/10/BIP39-Wordlist-2-page-printout-PDF.pdf)
+  - larger type than the one-page sheet
 - [`decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, US Letter
 - [`decimal-coldcard.pdf`](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, US Letter - [source](https://github.com/Coldcard/wordlist-paper/blob/master/wordlist-decimal.pdf)
 - [`decimal-kryptodots.pdf`](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4
