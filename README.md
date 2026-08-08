@@ -9,8 +9,8 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 | Format | Numbering | Range |
 | --- | --- | --- |
 | `plain` | none, words only | — |
-| `decimal` | decimal, from 1 | `1`-`2048` |
-| `index` | decimal, from 0 — the BIP-39 index | `0`-`2047` |
+| `decimal` | decimal, from 1 — one-indexed | `1`-`2048` |
+| `index` | decimal, from 0 — zero-indexed, the BIP-39 index | `0`-`2047` |
 | `hex` | hexadecimal, from 0 | `000`-`7FF` |
 | `binary` | 11-bit binary, from 0 | `00000000000`-`11111111111` |
 | `diceware` | keyed by dice rolls or bit patterns | — |
@@ -65,7 +65,7 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 - [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf)
 
-#### Binary
+#### Binary — 11 bits, 0 to 2047
 
 - [massmux](pdf/binary/bip-39-binary-massmux.pdf) - index, word and 11-bit binary
 - [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - grid in blocks of 64
