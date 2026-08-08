@@ -23,6 +23,8 @@ The last part of the name is whatever tells a file apart from others in its form
 
 ## Formats
 
+The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly. The PDFs come from the vendors named below.
+
 ### `.json`
 
 - [`bip-39-array.json`](json/bip-39-array.json) - the 2048 words in order
@@ -49,36 +51,36 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 #### Decimal — 1 to 2048
 
-- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page
-- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page
-- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages
-- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages
-- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages
-- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page
-- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages
+- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page, A4
+- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page, A4
+- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, Letter
+- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, Letter
+- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4
+- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page, A4
+- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4
 
 #### Index — 0 to 2047
 
-- [Coldbit](pdf/index/bip-39-index-coldbit.pdf) - 1 page
+- [Coldbit](pdf/index/bip-39-index-coldbit.pdf) - 1 page, A4
 
 #### Hexadecimal — 000 to 7FF
 
-- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages
+- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages, Letter
 
 #### Binary — 11 bits, 0 to 2047
 
-- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, one row per word
-- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, 64 words per column
+- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4, one row per word
+- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, Letter, 64 words per column
 
 #### Diceware
 
-- [BitBox](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, five dice rolls and a coin flip
-- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, eleven bits from coins or dice
+- [BitBox](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4, five dice rolls and a coin flip
+- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4, eleven bits from coins or dice
 
 #### Plain — no numbering
 
-- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page
-- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages
+- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, Letter
+- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
 
 ## License
 
