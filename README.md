@@ -27,7 +27,7 @@ The last part of the name is the vendor, or a short description where there is n
 
 The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly.
 
-### `.json`
+### <img src="assets/json.svg" width="18"> `.json`
 
 - [`array.json`](json/bip-39-array.json) - the 2048 words in order
 - [`tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
@@ -41,7 +41,7 @@ binary = index.toString(2).padStart(11, '0')
 hex    = index.toString(16).toUpperCase().padStart(3, '0')
 ```
 
-### `.txt`
+### <img src="assets/txt.svg" width="18"> `.txt`
 
 - [`english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, unchanged
 - [`oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
@@ -59,7 +59,7 @@ index.txt        0  abandon
 binary.txt       0  00000000000  abandon
 ```
 
-### `.pdf`
+### <img src="assets/pdf.svg" width="18"> `.pdf`
 
 #### Decimal (1 to 2048)
 
@@ -98,4 +98,4 @@ binary.txt       0  00000000000  abandon
 
 ## License
 
-This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. The PDFs are the work of their respective vendors and are redistributed here for convenience.
+This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. The PDFs are the work of their respective vendors and are redistributed here for convenience. The format icons are from [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme), MIT licensed.
