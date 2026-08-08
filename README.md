@@ -21,7 +21,7 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 
 Sheets showing more than one notation are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
 
-The last part of the name is the vendor, or a short description where there is no vendor.
+The last part of the name is the vendor, or a short description where there is no vendor. The lists below drop the shared `bip-39-` prefix.
 
 ## Formats
 
@@ -29,9 +29,9 @@ The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](ht
 
 ### `.json`
 
-- [`bip-39-array.json`](json/bip-39-array.json) - the 2048 words in order
-- [`bip-39-tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
-- [`bip-39-records.json`](json/bip-39-records.json) - `{index, order, binary, word}` objects
+- [`array.json`](json/bip-39-array.json) - the 2048 words in order
+- [`tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
+- [`records.json`](json/bip-39-records.json) - `{index, order, binary, word}` objects
 
 Everything except the word itself is derived from the index, so you can compute what you need rather than pick a file for it:
 
@@ -43,11 +43,11 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ### `.txt`
 
-- [`bip-39-english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, unchanged
-- [`bip-39-oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
-- [`bip-39-decimal.txt`](txt/bip-39-decimal.txt) - number and word, starting at 1
-- [`bip-39-index.txt`](txt/bip-39-index.txt) - index and word, starting at 0
-- [`bip-39-binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
+- [`english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, unchanged
+- [`oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
+- [`decimal.txt`](txt/bip-39-decimal.txt) - number and word, starting at 1
+- [`index.txt`](txt/bip-39-index.txt) - index and word, starting at 0
+- [`binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
 
 The first line of each:
 
@@ -63,36 +63,36 @@ binary.txt       0  00000000000  abandon
 
 #### Decimal (1 to 2048)
 
-- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page, A4
-- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page, A4
-- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, Letter
-- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, Letter
-- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4
-- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page, A4
-- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4
+- [`decimal-bitplates.pdf`](pdf/decimal/bip-39-decimal-bitplates.pdf) - 1 page, A4
+- [`decimal-coinplate.pdf`](pdf/decimal/bip-39-decimal-coinplate.pdf) - 1 page, A4
+- [`decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, Letter
+- [`decimal-coldcard.pdf`](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, Letter
+- [`decimal-kryptodots.pdf`](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4
+- [`decimal-lwallet.pdf`](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page, A4
+- [`decimal-tinyseed.pdf`](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4
 
 #### Index (0 to 2047)
 
-- [Coldbit](pdf/index/bip-39-index-coldbit.pdf) - 1 page, A4
+- [`index-coldbit.pdf`](pdf/index/bip-39-index-coldbit.pdf) - 1 page, A4
 
 #### Hexadecimal (000 to 7FF)
 
-- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages, Letter
+- [`hex-coldcard.pdf`](pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages, Letter
 
 #### Binary (11 bits, 0 to 2047)
 
-- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4, one row per word
-- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, Letter, 64 words per column
+- [`binary-massmux.pdf`](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4, one row per word
+- [`binary-lookup-table.pdf`](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, Letter, 64 words per column
 
 #### Diceware
 
-- [BitBox](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4, five dice rolls and a coin flip
-- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4, eleven bits from coins or dice
+- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4, five dice rolls and a coin flip
+- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4, eleven bits from coins or dice
 
 #### Plain (no numbering)
 
-- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, Letter
-- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
+- [`plain-blockplate.pdf`](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, Letter
+- [`plain-btcguide.pdf`](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
 
 ## License
 
