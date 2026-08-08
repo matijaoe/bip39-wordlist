@@ -1,0 +1,46 @@
+name: integrity
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Recorded hashes still match
+        run: sha256sum -c SHA256SUMS
+
+      - name: Every file is recorded in SHA256SUMS
+        run: |
+          diff <(cut -c67- SHA256SUMS | sort) \
+               <(find pdf txt json -type f ! -name '.DS_Store' | sort)
+
+      - name: Every README source url is in sources.tsv
+        run: |
+          fail=0
+          while read -r url; do
+            grep -qF "$url" sources.tsv || { echo "::error::in README but not sources.tsv: $url"; fail=1; }
+          done < <(grep -o '\[source\](\([^)]*\))' README.md | sed 's/\[source\](\(.*\))/\1/')
+          exit $fail
+
+      - name: Every sources.tsv path exists
+        run: |
+          fail=0
+          while IFS=$'\t' read -r file url; do
+            case "$file" in '#'*|'') continue;; esac
+            [ -e "$file" ] || { echo "::error::sources.tsv points at a missing file: $file"; fail=1; }
+          done < sources.tsv
+          exit $fail
+
+      - name: Every relative link in the README resolves
+        run: |
+          fail=0
+          while read -r target; do
+            case "$target" in http*) continue;; esac
+            [ -e "$target" ] || { echo "::error::broken README link: $target"; fail=1; }
+          done < <(grep -o '](\([^)]*\))\|src="\([^"]*\)"' README.md | sed 's/](\(.*\))/\1/; s/src="\(.*\)"/\1/')
+          exit $fail

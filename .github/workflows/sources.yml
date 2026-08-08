@@ -1,0 +1,44 @@
+name: sources
+
+# Vendors re-export their sheets from time to time. A change upstream is not a
+# fault in this repo, so this job reports and never fails the build.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare every source against the copy here
+        run: |
+          same=0; changed=0; unreachable=0
+          while IFS=$'\t' read -r file url; do
+            case "$file" in '#'*|'') continue;; esac
+            if curl -sSLf --max-time 60 -o /tmp/dl.bin "$url"; then
+              ours=$(sha256sum "$file" | cut -d' ' -f1)
+              theirs=$(sha256sum /tmp/dl.bin | cut -d' ' -f1)
+              if [ "$ours" = "$theirs" ]; then
+                same=$((same+1)); echo "match        $file"
+              else
+                changed=$((changed+1))
+                echo "::warning::upstream changed, $file no longer matches $url (now $theirs)"
+              fi
+            else
+              unreachable=$((unreachable+1))
+              echo "::warning::unreachable, $url for $file"
+            fi
+          done < sources.tsv
+          echo
+          echo "$same matched, $changed changed upstream, $unreachable unreachable"
+          {
+            echo "| result | count |"
+            echo "| --- | --- |"
+            echo "| matched | $same |"
+            echo "| changed upstream | $changed |"
+            echo "| unreachable | $unreachable |"
+          } >> "$GITHUB_STEP_SUMMARY"
