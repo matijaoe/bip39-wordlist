@@ -1,0 +1,81 @@
+name: sources
+
+# Vendors re-publish their sheets from time to time. That is not a fault in this
+# repo, so this job never fails. It compares every url in sources.tsv against the
+# copy here and opens a single issue when something differs, because a warning in
+# a log nobody opens is not a signal.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare every source against the copy here
+        id: compare
+        run: |
+          same=0; changed=0; unreachable=0
+          : > report.md
+          while IFS=$'\t' read -r file url; do
+            case "$file" in '#'*|'') continue;; esac
+            if curl -sSLf --max-time 60 -o /tmp/dl.bin "$url"; then
+              ours=$(sha256sum "$file" | cut -d' ' -f1)
+              theirs=$(sha256sum /tmp/dl.bin | cut -d' ' -f1)
+              if [ "$ours" = "$theirs" ]; then
+                same=$((same+1)); echo "match        $file"
+              else
+                changed=$((changed+1)); echo "changed      $file"
+                echo "- \`$file\` — the vendor now publishes different bytes at [$url]($url)" >> report.md
+              fi
+            else
+              unreachable=$((unreachable+1)); echo "unreachable  $file"
+              echo "- \`$file\` — [$url]($url) could not be fetched" >> report.md
+            fi
+          done < sources.tsv
+
+          echo "$same matched, $changed changed, $unreachable unreachable"
+          {
+            echo "| result | count |"
+            echo "| --- | --- |"
+            echo "| matched | $same |"
+            echo "| changed upstream | $changed |"
+            echo "| unreachable | $unreachable |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "drifted=$((changed + unreachable))" >> "$GITHUB_OUTPUT"
+
+      - name: Record any drift as an issue
+        if: steps.compare.outputs.drifted != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Upstream sources have changed since they were recorded"
+          {
+            echo "The files in this repo are unchanged and still match \`SHA256SUMS\`."
+            echo "Nothing here is broken. This issue only records that a vendor has"
+            echo "re-published or moved their own copy, so the source link below no"
+            echo "longer returns the exact bytes archived here."
+            echo
+            cat report.md
+            echo
+            echo "A vendor re-exporting a PDF changes its hash even when the wordlist"
+            echo "is identical, so a difference is expected over time and is not a sign"
+            echo "of tampering. Close this once the link has been reviewed."
+            echo
+            echo "_Opened automatically by the weekly \`sources\` workflow._"
+          } > body.md
+
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file body.md
+          else
+            gh issue create --title "$title" --body-file body.md
+          fi

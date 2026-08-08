@@ -1,0 +1,35 @@
+# Where each file came from. Tab separated: path, url.
+# One row per file.
+# Every url here has been fetched and its sha-256 matched against SHA256SUMS.
+# Files with no row have no known source.
+wordlists/pdf/binary/bip-39-binary-massmux.pdf	https://www.massmux.com/wp-content/uploads/2023/04/BIP39-Binary.pdf
+wordlists/pdf/decimal/bip-39-decimal-bitplates.pdf	https://www.bitplates.com/uploads/b/e5142000-c8c3-11ea-8d36-7f18722a8965/1753b200-c132-11ed-8ccc-bf9df506f69a.pdf
+wordlists/pdf/decimal/bip-39-decimal-coinplate-1p.pdf	https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf
+wordlists/pdf/decimal/bip-39-decimal-coinplate-2p.pdf	https://getcoinplate.com/wp-content/uploads/2022/10/BIP39-Wordlist-2-page-printout-PDF.pdf
+wordlists/pdf/decimal/bip-39-decimal-cold-code.pdf	https://www.coldcodecrypto.com/s/Cold-Code-Wordlist.pdf
+wordlists/pdf/decimal/bip-39-decimal-coldcard.pdf	https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist-decimal.pdf
+wordlists/pdf/decimal/bip-39-decimal-coldti.pdf	https://coldti.com/coldti-bip39.pdf
+wordlists/pdf/decimal/bip-39-decimal-kryptodots.pdf	https://kryptodots.com/wp-content/downloads/bip-0039-English-wordlist-2pag-v2.6.pdf
+wordlists/pdf/decimal/bip-39-decimal-lwallet.pdf	https://lwallet.com.ua/wp-content/uploads/2022/05/BIP39_Wordlist.pdf
+wordlists/pdf/decimal/bip-39-decimal-tinyseed.pdf	https://raw.githubusercontent.com/tinyseed-backup/word-lists/main/BIP39_Tinyseed_io.pdf
+wordlists/pdf/diceware/bip-39-diceware-binary-rudefox.pdf	https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf
+wordlists/pdf/diceware/bip-39-diceware-binary-veeb.pdf	https://raw.githubusercontent.com/veebch/Bip39-Dice/master/BIP39DiceManualCalculator.pdf
+wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf	https://storage.googleapis.com/dxp-production-assets/content/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice/JadeDiceRollsGuide.pdf
+wordlists/pdf/diceware/bip-39-diceware-d4-bitbox.pdf	https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf
+wordlists/pdf/diceware/bip-39-diceware-d4-bitcoinkeys.pdf	https://bitcoinkeys.guide/bip39-word-table.pdf
+wordlists/pdf/diceware/bip-39-diceware-d6-taelfrinn.pdf	https://raw.githubusercontent.com/taelfrinn/Bip39-diceware/master/coin_plus_d6_bip39.pdf
+wordlists/pdf/hex/bip-39-hex-coldcard.pdf	https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist.pdf
+wordlists/pdf/hex/bip-39-hex-moonsettler.pdf	https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf
+wordlists/pdf/index/bip-39-index-coldbit.pdf	https://coldbit.com/wp-content/uploads/2019/05/bip-39-wordlist.pdf
+wordlists/pdf/plain/bip-39-plain-blockplate.pdf	https://cdn.shopify.com/s/files/1/2362/8267/files/bip_39_wordlist_revb.pdf
+wordlists/pdf/plain/bip-39-plain-btcguide.pdf	https://btcguide.github.io/assets/guide/bip39_wordlist.pdf
+wordlists/txt/lang/bip-39-chinese_simplified.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_simplified.txt
+wordlists/txt/lang/bip-39-chinese_traditional.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_traditional.txt
+wordlists/txt/lang/bip-39-czech.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/czech.txt
+wordlists/txt/lang/bip-39-english.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt
+wordlists/txt/lang/bip-39-french.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/french.txt
+wordlists/txt/lang/bip-39-italian.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/italian.txt
+wordlists/txt/lang/bip-39-japanese.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/japanese.txt
+wordlists/txt/lang/bip-39-korean.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/korean.txt
+wordlists/txt/lang/bip-39-portuguese.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/portuguese.txt
+wordlists/txt/lang/bip-39-spanish.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/spanish.txt
