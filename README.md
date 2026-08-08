@@ -124,7 +124,7 @@ $ grep diceware-bitbox SHA256SUMS
 
 A mismatch there does not necessarily mean tampering. Vendors re-export their sheets, and a new timestamp inside the PDF changes the hash while the wordlist stays the same.
 
-[`sources.tsv`](sources.tsv) pairs every file with the URLs it can be fetched from, so that check can be scripted rather than done by hand. Some files list a fallback, where the same bytes are served from a second host or an archive copy.
+[`sources.tsv`](sources.tsv) pairs every file with the URLs it can be fetched from, so that check can be scripted rather than done by hand.
 
 The check that survives that is the wordlist itself. `bip-39-english.txt` is the upstream file unchanged, so it can be diffed against the spec directly:
 
