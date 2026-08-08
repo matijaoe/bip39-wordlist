@@ -52,17 +52,17 @@ From `lang/english.txt`:
 - [`decimal.txt`](wordlists/txt/bip-39-decimal.txt) - number and word, starting at 1
 - [`index.txt`](wordlists/txt/bip-39-index.txt) - index and word, starting at 0
 - [`hex.txt`](wordlists/txt/bip-39-hex.txt) - hex and word, starting at 000
-- [`bits.txt`](wordlists/txt/bip-39-bits.txt) - 11-bit binary and word
-- [`binary.txt`](wordlists/txt/bip-39-binary.txt) - index, 11-bit binary and word
+- [`binary.txt`](wordlists/txt/bip-39-binary.txt) - 11-bit binary and word
+- [`index-binary.txt`](wordlists/txt/bip-39-index-binary.txt) - index, 11-bit binary and word
 
 ```
-english.txt   abandon
-oneline.txt   abandon ability able about above absent …
-decimal.txt      1  abandon
-index.txt        0  abandon
-hex.txt        000  abandon
-bits.txt      00000000000  abandon
-binary.txt       0  00000000000  abandon
+english.txt        abandon
+oneline.txt        abandon ability able about above absent …
+decimal.txt           1  abandon
+index.txt             0  abandon
+hex.txt             000  abandon
+binary.txt      00000000000  abandon
+index-binary.txt      0  00000000000  abandon
 ```
 
 ###  `.json`
@@ -190,6 +190,28 @@ all checks passed
 GitHub Actions runs these exact two commands on every push and pull request, so the badge above means what a clean local run means. Together they guarantee that every wordlist matches the BIP byte for byte, that every derived file follows from English, that nothing is missing from `SHA256SUMS`, and that no link in this README is broken.
 
 A separate weekly job re-fetches every URL in `sources.tsv` and reports when a vendor changes their file. It does not fail the build, because a vendor re-exporting a PDF is not a fault here.
+
+## Adding a wordlist
+
+Put the file under `wordlists/`, in the folder for its numbering, and name it `bip-39-<format>-<vendor>.<ext>`. The format comes from what the sheet prints rather than from the vendor: `decimal` starts at 1, `index` starts at 0, and a sheet showing more than one notation uses the rarer one. Use a short label in place of the vendor when there is none.
+
+If it has a source, download the vendor's copy and compare it before recording the URL:
+
+```console
+$ curl -sL <url> | shasum -a 256
+```
+
+Add the row to `sources.tsv` only if that matches the file you added. A source link that does not verify is worse than no link at all.
+
+Then rewrite the hashes and run the checks:
+
+```bash
+./scripts/checksums.sh
+./scripts/check.sh
+python3 scripts/verify.py
+```
+
+`check.sh` fails if the file is missing from `SHA256SUMS` or from the lists above, so a half-finished addition cannot pass quietly. A derived file also needs its own case in `scripts/verify.py`, since only that script knows how it should be rebuilt from English.
 
 ## License
 
