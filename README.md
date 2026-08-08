@@ -15,15 +15,15 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 | `binary` | 11-bit binary, starts at 0 | `00000000000`-`11111111111` |
 | `diceware` | dice rolls or bit patterns | — |
 
-`decimal` and `index` hold the same numbers. Only the starting point differs. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
+`decimal` and `index` differ only in where the numbering starts. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
 
-Some sheets show more than one notation. Those are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
+Sheets showing more than one notation are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
 
-The last part of the name identifies the file within its format. It is the vendor where there is one, and a short description where there isn't.
+The last part of the name is the vendor, or a short description where there is no vendor.
 
 ## Formats
 
-The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly. The PDFs come from the vendors named below.
+The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly.
 
 ### `.json`
 
