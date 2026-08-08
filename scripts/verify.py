@@ -132,7 +132,7 @@ check("index-binary.txt numbers from 0", [r[0] for r in rows] == [str(i) for i i
 check("index-binary.txt bits are the 11 bit index", [r[1] for r in rows] == [format(i, "011b") for i in range(2048)])
 check("index-binary.txt words match", [r[2] for r in rows] == words)
 
-rows = [ln.split() for ln in read("wordlists/txt/bip-39-diceware-bitbox.txt")]
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-diceware-d4.txt")]
 # BitBox rolls a d6 five times, rerolling 5 and 6, then flips a coin.
 # That is base 4 to five digits times two, which is exactly 2048.
 expected = [
@@ -140,7 +140,7 @@ expected = [
     + ["h" if i % 2 == 0 else "t", w]
     for i, w in enumerate(words)
 ]
-check("diceware-bitbox.txt is five base-4 dice then a coin", rows == expected)
+check("diceware-d4.txt is five d4 rolls then a coin", rows == expected)
 
 group("json")
 data = json.loads((ROOT / "wordlists/json/bip-39-array.json").read_text())

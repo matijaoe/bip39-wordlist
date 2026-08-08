@@ -53,18 +53,18 @@ From `lang/english.txt`:
 - [`index.txt`](wordlists/txt/bip-39-index.txt) - index and word, starting at 0
 - [`hex.txt`](wordlists/txt/bip-39-hex.txt) - hex and word, starting at 000
 - [`binary.txt`](wordlists/txt/bip-39-binary.txt) - 11-bit binary and word
-- [`diceware-bitbox.txt`](wordlists/txt/bip-39-diceware-bitbox.txt) - five dice and a coin flip, the BitBox method as text
+- [`diceware-d4.txt`](wordlists/txt/bip-39-diceware-d4.txt) - five rolls of a d4 and a coin flip
 - [`index-binary.txt`](wordlists/txt/bip-39-index-binary.txt) - index, 11-bit binary and word
 
 ```
-english.txt          abandon
-oneline.txt          abandon ability able about above absent …
-decimal.txt             1  abandon
-index.txt               0  abandon
-hex.txt               000  abandon
-binary.txt           00000000000  abandon
-index-binary.txt        0  00000000000  abandon
-diceware-bitbox.txt  1 1 1 1 1  h  abandon
+english.txt       abandon
+oneline.txt       abandon ability able about above absent …
+decimal.txt          1  abandon
+index.txt            0  abandon
+hex.txt            000  abandon
+binary.txt        00000000000  abandon
+index-binary.txt     0  00000000000  abandon
+diceware-d4.txt   1 1 1 1 1  h  abandon
 ```
 
 ###  `.json`
@@ -195,17 +195,21 @@ A separate weekly job re-fetches every URL in `sources.tsv` and reports when a v
 
 ## Adding a wordlist
 
-Put the file under `wordlists/`, in the folder for its numbering, and name it `bip-39-<format>-<vendor>.<ext>`. The format comes from what the sheet prints rather than from the vendor: `decimal` starts at 1, `index` starts at 0, and a sheet showing more than one notation uses the rarer one. Use a short label in place of the vendor when there is none.
+Two kinds of file live here and they need different things.
 
-If it has a source, download the vendor's copy and compare it before recording the URL:
+**A sheet published by someone else.** Name it `bip-39-<format>-<vendor>.<ext>` and put it in the folder for its numbering. The format is what the sheet prints, not what the vendor sells: `decimal` starts at 1, `index` starts at 0, and a sheet showing more than one notation uses the rarer one. Use a short label when there is no vendor.
+
+Download their copy and compare it before recording the URL:
 
 ```console
 $ curl -sL <url> | shasum -a 256
 ```
 
-Add the row to `sources.tsv` only if that matches the file you added. A source link that does not verify is worse than no link at all.
+Add the row to `sources.tsv` only if that matches. A source link that does not verify is worse than no link.
 
-Then rewrite the hashes and run the checks:
+**A file built here** from `lang/english.txt`. It gets no `sources.tsv` row, because nobody published it. It needs a case in `scripts/verify.py` describing how to rebuild it, and a line in the sample block above if it is a `.txt`.
+
+Either way, finish with:
 
 ```bash
 ./scripts/checksums.sh
@@ -213,7 +217,7 @@ Then rewrite the hashes and run the checks:
 python3 scripts/verify.py
 ```
 
-`check.sh` fails if the file is missing from `SHA256SUMS` or from the lists above, so a half-finished addition cannot pass quietly. A derived file also needs its own case in `scripts/verify.py`, since only that script knows how it should be rebuilt from English.
+`check.sh` fails if the file is missing from `SHA256SUMS` or from the lists above, so a half-finished addition cannot pass quietly. What it cannot see is whether a built file is correct, only that it is listed. That is what the `verify.py` case is for.
 
 ## License
 
