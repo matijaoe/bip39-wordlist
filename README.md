@@ -70,7 +70,7 @@ binary.txt       0  00000000000  abandon
 - [`decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, US Letter
 - [`decimal-coldcard.pdf`](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, US Letter - [source](https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist-decimal.pdf)
 - [`decimal-coldti.pdf`](pdf/decimal/bip-39-decimal-coldti.pdf) - 7 pages, US Letter - [source](https://coldti.com/coldti-bip39.pdf)
-- [`decimal-kryptodots.pdf`](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4
+- [`decimal-kryptodots.pdf`](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4 - [source](https://kryptodots.com/wp-content/downloads/bip-0039-English-wordlist-2pag-v2.6.pdf)
 - [`decimal-lwallet.pdf`](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page, A4 - [source](https://lwallet.com.ua/wp-content/uploads/2022/05/BIP39_Wordlist.pdf)
 - [`decimal-tinyseed.pdf`](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4
 
@@ -98,6 +98,31 @@ binary.txt       0  00000000000  abandon
 
 - [`plain-blockplate.pdf`](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, US Letter
 - [`plain-btcguide.pdf`](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
+
+## Verifying
+
+[`SHA256SUMS`](SHA256SUMS) holds a SHA-256 for every file here. To check they are all unchanged:
+
+```console
+$ shasum -c SHA256SUMS
+pdf/decimal/bip-39-decimal-coinplate-1p.pdf: OK
+...
+```
+
+That proves the files match what was published here. To check a sheet still matches the vendor's own copy, hash theirs and compare to the same line:
+
+```console
+$ curl -sL https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf | shasum -a 256
+13ecc022d8203324c8a5485b0136eb0b795fbbe7402f6aae065ca97461851416
+```
+
+A mismatch there does not necessarily mean tampering. Vendors re-export their sheets, and a new timestamp inside the PDF changes the hash while the wordlist stays the same.
+
+The check that survives that is the wordlist itself. `bip-39-english.txt` is the upstream file unchanged, so it can be diffed against the spec directly:
+
+```console
+$ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/bip-39-english.txt
+```
 
 ## License
 
