@@ -86,8 +86,10 @@ binary.txt       0  00000000000  abandon
 
 #### Diceware
 
-- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 - five dice rolls and a coin flip
-- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4 - eleven bits from coins or dice
+- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4
+  - five dice rolls and a coin flip
+- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4
+  - eleven bits from coins or dice
 
 #### Plain (no numbering)
 
