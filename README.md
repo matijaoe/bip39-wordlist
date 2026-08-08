@@ -107,9 +107,9 @@ binary.txt       0  00000000000  abandon
 #### Diceware
 
 - [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
-  - five dice rolls and a coin flip
+  - words keyed by five dice rolls and a coin flip
 - [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
-  - eleven bits from coins or dice, plus a worksheet page for recording rolls
+  - words keyed by 11-bit patterns, plus a blank worksheet page
 
 #### Plain (no numbering)
 
