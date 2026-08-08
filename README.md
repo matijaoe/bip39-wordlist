@@ -104,6 +104,7 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 #### Hexadecimal (000 to 7FF)
 
 - [`hex-coldcard.pdf`](wordlists/pdf/hex/bip-39-hex-coldcard.pdf) - 4 pages, US Letter - [source](https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist.pdf)
+- [`hex-moonsettler.pdf`](wordlists/pdf/hex/bip-39-hex-moonsettler.pdf) - 1 page, A4 - [source](https://raw.githubusercontent.com/moonsettler/guides/main/bip39-cheatsheet.pdf)
 
 #### Binary (11 bits, 0 to 2047)
 
@@ -112,10 +113,21 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 #### Diceware
 
-- [`diceware-bitbox.pdf`](wordlists/pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
-  - look up each word with five dice and a coin flip
-- [`diceware-binary.pdf`](wordlists/pdf/diceware/bip-39-diceware-binary.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
-  - look up each word with an 11-bit pattern
+Every method below maps a throw to a word. They differ in what you have to throw, so pick by the dice you own.
+
+- [`diceware-binary-rudefox.pdf`](wordlists/pdf/diceware/bip-39-diceware-binary-rudefox.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
+  - 11 bits from coin flips or any two-sided throw, plus a page to record rolls
+- [`diceware-binary-veeb.pdf`](wordlists/pdf/diceware/bip-39-diceware-binary-veeb.pdf) - 4 pages, A4 - [source](https://raw.githubusercontent.com/veebch/Bip39-Dice/master/BIP39DiceManualCalculator.pdf)
+  - throw 11 dice of any kind, read odd as 0 and even as 1, then add the values up
+- [`diceware-d4-bitbox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d4-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
+  - five throws of 1 to 4 and a coin flip, rerolling 5 and 6 on a d6
+  - BitBox also publish [step-by-step instructions](https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf) for it
+- [`diceware-d4-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d4-bitcoinkeys.pdf) - 4 pages, US Letter - [source](https://bitcoinkeys.guide/bip39-word-table.pdf)
+  - the same five throws and a coin flip, laid out differently
+- [`diceware-d6-taelfrinn.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-taelfrinn.pdf) - 3 pages, US Letter - [source](https://raw.githubusercontent.com/taelfrinn/Bip39-diceware/master/coin_plus_d6_bip39.pdf)
+  - a coin and four ordinary d6, rerolling when the throw lands outside the table
+- [`diceware-d16-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf) - 17 pages, US Letter - [source](https://storage.googleapis.com/dxp-production-assets/content/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice/JadeDiceRollsGuide.pdf)
+  - two d16 and one d8, which covers all 2048 words with nothing to reroll
 
 #### Plain (no numbering)
 

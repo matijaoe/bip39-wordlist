@@ -12,9 +12,14 @@ ec1fb92a67c84013c50ae5fc7270b08e682207049b098a5554d251a3c4aa3de9  wordlists/pdf/
 2effa43785bebe6f890276f68362bc8235cff8e951d5d1f43e2a1535cd53378c  wordlists/pdf/decimal/bip-39-decimal-kryptodots.pdf
 998214373a6819485f7fbea76b23ab4cbb81566c67319ca18fd223230e0d0ee3  wordlists/pdf/decimal/bip-39-decimal-lwallet.pdf
 354879dce1352391817e49ac244674a630824011ffdc556357a381a38c312fb8  wordlists/pdf/decimal/bip-39-decimal-tinyseed.pdf
-f5bd56c15a2471413289b42e3ebc3da598dcd9c35a8e2ae681c3937283348c6d  wordlists/pdf/diceware/bip-39-diceware-binary.pdf
-9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  wordlists/pdf/diceware/bip-39-diceware-bitbox.pdf
+f5bd56c15a2471413289b42e3ebc3da598dcd9c35a8e2ae681c3937283348c6d  wordlists/pdf/diceware/bip-39-diceware-binary-rudefox.pdf
+d663d0a6db7ef29ff74e44d053aa045e5229c02ee66ec1130beba2f1859a1d52  wordlists/pdf/diceware/bip-39-diceware-binary-veeb.pdf
+5aa832156e75a5bc947b191deca243abd27350d85cd0587dc0c582079fcf64d6  wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf
+9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  wordlists/pdf/diceware/bip-39-diceware-d4-bitbox.pdf
+814e675445f59b24a735b0565df78c27f25bc4f3b644921f7205ac45184617b3  wordlists/pdf/diceware/bip-39-diceware-d4-bitcoinkeys.pdf
+96bf7848fa6adcb0567d3d7fae6379925936b31ad6e5d502ec6834c05ebaf385  wordlists/pdf/diceware/bip-39-diceware-d6-taelfrinn.pdf
 ef2e41ef1c1427792bdef45c1eced6adb498a9278abf30737b226ffa9273a6de  wordlists/pdf/hex/bip-39-hex-coldcard.pdf
+ba192978c510387072b60ea990372b4810f4f05640a4d844e6379182e509d6f9  wordlists/pdf/hex/bip-39-hex-moonsettler.pdf
 e30fba094a0734fcba6fd59999afcd9620af0689f7a956a93a5319e2abfe7064  wordlists/pdf/index/bip-39-index-coldbit.pdf
 230f4cb1b122401781e6f5d95b61bc405e734d01133563b510704ea3a062004f  wordlists/pdf/plain/bip-39-plain-blockplate.pdf
 f66e5e5ef5b3571a0887dd9463e5a30aa9b29b7e44e4b7e851bfa9f9817aa322  wordlists/pdf/plain/bip-39-plain-btcguide.pdf
