@@ -81,13 +81,13 @@ binary.txt       0  00000000000  abandon
 
 #### Binary (11 bits, 0 to 2047)
 
-- [`binary-massmux.pdf`](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4, one row per word
-- [`binary-lookup-table.pdf`](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, Letter, 64 words per column
+- [`binary-massmux.pdf`](pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4 (one row per word)
+- [`binary-lookup-table.pdf`](pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, Letter (64 words per column)
 
 #### Diceware
 
-- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4, five dice rolls and a coin flip
-- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4, eleven bits from coins or dice
+- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 (five dice rolls and a coin flip)
+- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4 (eleven bits from coins or dice)
 
 #### Plain (no numbering)
 
