@@ -19,7 +19,7 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 
 `decimal` and `index` differ only in where the numbering starts. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
 
-Sheets showing more than one notation are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
+Sheets with more than one notation are filed under the rarer one, for example binary over decimal.
 
 The last part of the name is the vendor, or a short description where there is no vendor. The lists below drop the shared `bip-39-` prefix.
 
