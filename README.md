@@ -59,7 +59,7 @@ english.txt   abandon
 oneline.txt   abandon ability able about above absent …
 decimal.txt      1  abandon
 index.txt        0  abandon
-hex.txt       000  abandon
+hex.txt        000  abandon
 binary.txt       0  00000000000  abandon
 ```
 
@@ -104,7 +104,7 @@ binary.txt       0  00000000000  abandon
 
 ## Verifying
 
-[`SHA256SUMS`](SHA256SUMS) holds a SHA-256 for every file here. To check they are all unchanged:
+[`SHA256SUMS`](SHA256SUMS) holds a SHA-256 for every wordlist file, meaning everything under `pdf/`, `txt/` and `json/`. The README, this repo's own scripts and the icons are not listed, since git already tracks those and they change often. To check they are all unchanged:
 
 ```console
 $ shasum -c SHA256SUMS        # sha256sum -c SHA256SUMS on linux
