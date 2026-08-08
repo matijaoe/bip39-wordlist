@@ -113,8 +113,11 @@ pdf/decimal/bip-39-decimal-coinplate-1p.pdf: OK
 That proves the files match what was published here. To check a sheet still matches the vendor's own copy, hash theirs and compare to the same line:
 
 ```console
-$ curl -sL https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf | shasum -a 256
-13ecc022d8203324c8a5485b0136eb0b795fbbe7402f6aae065ca97461851416
+$ curl -sL https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf | shasum -a 256
+9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535
+
+$ grep diceware-bitbox SHA256SUMS
+9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  pdf/diceware/bip-39-diceware-bitbox.pdf
 ```
 
 A mismatch there does not necessarily mean tampering. Vendors re-export their sheets, and a new timestamp inside the PDF changes the hash while the wordlist stays the same.
