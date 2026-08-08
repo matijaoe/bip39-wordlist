@@ -1,6 +1,6 @@
 # BIP-39 wordlists
 
-[integrity](https://github.com/matijaoe/bip39-wordlist/actions/workflows/integrity.yml)
+[![integrity](https://github.com/matijaoe/bip39-wordlist/actions/workflows/integrity.yml/badge.svg)](https://github.com/matijaoe/bip39-wordlist/actions/workflows/integrity.yml)
 
 BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
