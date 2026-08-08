@@ -2,7 +2,16 @@
 # One row per file.
 # Every url here has been fetched and its sha-256 matched against SHA256SUMS.
 # Files with no row have no known source.
-txt/bip-39-english.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt
+txt/lang/bip-39-chinese_simplified.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_simplified.txt
+txt/lang/bip-39-chinese_traditional.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_traditional.txt
+txt/lang/bip-39-czech.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/czech.txt
+txt/lang/bip-39-english.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt
+txt/lang/bip-39-french.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/french.txt
+txt/lang/bip-39-italian.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/italian.txt
+txt/lang/bip-39-japanese.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/japanese.txt
+txt/lang/bip-39-korean.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/korean.txt
+txt/lang/bip-39-portuguese.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/portuguese.txt
+txt/lang/bip-39-spanish.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/spanish.txt
 pdf/binary/bip-39-binary-massmux.pdf	https://www.massmux.com/wp-content/uploads/2023/04/BIP39-Binary.pdf
 pdf/decimal/bip-39-decimal-bitplates.pdf	https://www.bitplates.com/uploads/b/e5142000-c8c3-11ea-8d36-7f18722a8965/1753b200-c132-11ed-8ccc-bf9df506f69a.pdf
 pdf/decimal/bip-39-decimal-coinplate-1p.pdf	https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf

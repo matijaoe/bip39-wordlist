@@ -1,6 +1,6 @@
-# BIP-39 English Wordlists
+# BIP-39 wordlists
 
-The BIP-39 English wordlist in several formats, plus printable backup sheets from hardware and metal-plate vendors.
+BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
 ## Naming
 
@@ -17,23 +17,23 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 | `diceware` | dice rolls or bit patterns | —                           |
 
 
-`decimal` and `index` differ only in where the numbering starts. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
+`decimal` and `index` differ only in the start value. `index` starts at 0 (BIP-39 / wallets). `decimal` starts at 1 (most plates).
 
-Sheets with more than one notation are filed under the rarer one, for example binary over decimal.
+Sheets with more than one notation use the rarer one, for example binary over decimal.
 
-The last part of the name is the vendor, or a short description where there is no vendor. The lists below drop the shared `bip-39-` prefix.
+The last part of the name is the vendor, or a short label if there is none. Plain lists live under `txt/lang/` and use the language name from the [BIP-39 wordlists](https://github.com/bitcoin/bips/tree/master/bip-0039). The lists below drop the `bip-39-` prefix.
 
 ## Formats
 
-The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly.
-
 ### <img src="assets/json.svg" width="18"> `.json`
+
+From `lang/english.txt`:
 
 - [`array.json`](json/bip-39-array.json) - the 2048 words in order
 - [`tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
 - [`records.json`](json/bip-39-records.json) - `{index, order, binary, word}` objects
 
-Everything except the word itself is derived from the index, so you can compute what you need rather than pick a file for it:
+Only the word is stored; the rest follows from the index:
 
 ```js
 order  = index + 1
@@ -43,16 +43,30 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ### <img src="assets/txt.svg" width="18"> `.txt`
 
-- [`english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, unchanged - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt)
+#### Upstream
+
+From the BIP, under `txt/lang/`. One word per line, 2048 lines:
+
+- [`chinese_simplified.txt`](txt/lang/bip-39-chinese_simplified.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_simplified.txt)
+- [`chinese_traditional.txt`](txt/lang/bip-39-chinese_traditional.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/chinese_traditional.txt)
+- [`czech.txt`](txt/lang/bip-39-czech.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/czech.txt)
+- [`english.txt`](txt/lang/bip-39-english.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt)
+- [`french.txt`](txt/lang/bip-39-french.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/french.txt)
+- [`italian.txt`](txt/lang/bip-39-italian.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/italian.txt)
+- [`japanese.txt`](txt/lang/bip-39-japanese.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/japanese.txt)
+- [`korean.txt`](txt/lang/bip-39-korean.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/korean.txt)
+- [`portuguese.txt`](txt/lang/bip-39-portuguese.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/portuguese.txt)
+- [`spanish.txt`](txt/lang/bip-39-spanish.txt) - [source](https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/spanish.txt)
+
+#### Derived
+
+From `lang/english.txt`:
+
 - [`oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
 - [`decimal.txt`](txt/bip-39-decimal.txt) - number and word, starting at 1
 - [`index.txt`](txt/bip-39-index.txt) - index and word, starting at 0
 - [`hex.txt`](txt/bip-39-hex.txt) - hex and word, starting at 000
 - [`binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
-
-Only `english.txt` has a source. The other five are generated here from it, so they are checked by regenerating rather than by matching someone else's copy.
-
-The first line of each:
 
 ```
 english.txt   abandon
@@ -104,7 +118,7 @@ binary.txt       0  00000000000  abandon
 
 ## Verifying
 
-[`SHA256SUMS`](SHA256SUMS) holds a SHA-256 for every wordlist file, meaning everything under `pdf/`, `txt/` and `json/`. The README, this repo's own scripts and the icons are not listed, since git already tracks those and they change often. To check they are all unchanged:
+[`SHA256SUMS`](SHA256SUMS) has a SHA-256 for every file under `pdf/`, `txt/` and `json/`. README, scripts and icons are omitted. To check the files:
 
 ```console
 $ shasum -c SHA256SUMS        # sha256sum -c SHA256SUMS on linux
@@ -112,7 +126,7 @@ pdf/decimal/bip-39-decimal-coinplate-1p.pdf: OK
 ...
 ```
 
-That proves the files match what was published here. To check a sheet still matches the vendor's own copy, hash theirs and compare to the same line:
+To compare a vendor file to the copy here, hash theirs and match the line in `SHA256SUMS`:
 
 ```console
 $ curl -sL https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf | shasum -a 256
@@ -122,14 +136,14 @@ $ grep diceware-bitbox SHA256SUMS
 9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  pdf/diceware/bip-39-diceware-bitbox.pdf
 ```
 
-A mismatch there does not necessarily mean tampering. Vendors re-export their sheets, and a new timestamp inside the PDF changes the hash while the wordlist stays the same.
+A different hash is not always tampering. Vendors often re-export PDFs; a new timestamp changes the hash even when the words are the same.
 
-[`sources.tsv`](sources.tsv) pairs every file with the URLs it can be fetched from, so that check can be scripted rather than done by hand.
+[`sources.tsv`](sources.tsv) lists each file and its download URL.
 
-The check that survives that is the wordlist itself. `bip-39-english.txt` is the upstream file unchanged, so it can be diffed against the spec directly:
+Upstream plain lists match the BIP byte for byte:
 
 ```console
-$ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/bip-39-english.txt
+$ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/lang/bip-39-english.txt
 ```
 
 ## License
