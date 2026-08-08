@@ -51,6 +51,10 @@ rows = [ln.split() for ln in read("txt/bip-39-index.txt")]
 check("index.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])
 check("index.txt words match", [r[1] for r in rows] == words)
 
+rows = [ln.split() for ln in read("txt/bip-39-hex.txt")]
+check("hex.txt values from 000 to 7FF", [r[0] for r in rows] == [f"{i:03X}" for i in range(2048)])
+check("hex.txt words match", [r[1] for r in rows] == words)
+
 rows = [ln.split() for ln in read("txt/bip-39-binary.txt")]
 check("binary.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])
 check("binary.txt bits are the 11 bit index", [r[1] for r in rows] == [format(i, "011b") for i in range(2048)])

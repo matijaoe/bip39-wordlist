@@ -47,9 +47,10 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 - [`oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
 - [`decimal.txt`](txt/bip-39-decimal.txt) - number and word, starting at 1
 - [`index.txt`](txt/bip-39-index.txt) - index and word, starting at 0
+- [`hex.txt`](txt/bip-39-hex.txt) - hex and word, starting at 000
 - [`binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
 
-Only `english.txt` has a source. The other four are generated here from it, so they are checked by regenerating rather than by matching someone else's copy.
+Only `english.txt` has a source. The other five are generated here from it, so they are checked by regenerating rather than by matching someone else's copy.
 
 The first line of each:
 
@@ -58,6 +59,7 @@ english.txt   abandon
 oneline.txt   abandon ability able about above absent …
 decimal.txt      1  abandon
 index.txt        0  abandon
+hex.txt       000  abandon
 binary.txt       0  00000000000  abandon
 ```
 
