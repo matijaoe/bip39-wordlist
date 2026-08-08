@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check every generated file against txt/lang/bip-39-english.txt.
+"""Check every generated file against wordlists/txt/lang/bip-39-english.txt.
 
 Upstream plain lists are checked for shape and against pinned bitcoin/bips
 hashes. English is the source of truth for the derived txt and json files, so

@@ -120,11 +120,11 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ## Verifying
 
-[`SHA256SUMS`](SHA256SUMS) has a SHA-256 for every file under `wordlists/`. README, scripts and icons are omitted. To check the files:
+[`SHA256SUMS`](SHA256SUMS) has a SHA-256 for every file under `wordlists/`:
 
 ```console
 $ shasum -c SHA256SUMS        # sha256sum -c SHA256SUMS on linux
-pdf/decimal/bip-39-decimal-coinplate-1p.pdf: OK
+wordlists/pdf/decimal/bip-39-decimal-coinplate-1p.pdf: OK
 ...
 ```
 
@@ -135,7 +135,7 @@ $ curl -sL https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf | shasu
 9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535
 
 $ grep diceware-bitbox SHA256SUMS
-9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  pdf/diceware/bip-39-diceware-bitbox.pdf
+9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  wordlists/pdf/diceware/bip-39-diceware-bitbox.pdf
 ```
 
 A different hash is not always tampering. Vendors often re-export PDFs; a new timestamp changes the hash even when the words are the same.
@@ -145,7 +145,7 @@ A different hash is not always tampering. Vendors often re-export PDFs; a new ti
 Upstream plain lists match the BIP byte for byte:
 
 ```console
-$ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/lang/bip-39-english.txt
+$ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - wordlists/txt/lang/bip-39-english.txt
 ```
 
 ## Checks
@@ -177,8 +177,6 @@ $ ./scripts/check.sh
 
 all checks passed
 ```
-
-Only failures print detail, so a run that lists tallies is a clean one.
 
 GitHub Actions runs these exact two commands on every push and pull request, so the badge above means what a clean local run means. Together they guarantee that every wordlist matches the BIP byte for byte, that every derived file follows from English, that nothing is missing from `SHA256SUMS`, and that no link in this README is broken.
 
