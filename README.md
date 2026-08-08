@@ -91,8 +91,8 @@ binary.txt       0  00000000000  abandon
 
 - [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
   - five dice rolls and a coin flip
-- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4
-  - eleven bits from coins or dice
+- [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
+  - eleven bits from coins or dice, plus a worksheet page for recording rolls
 
 #### Plain (no numbering)
 
@@ -117,6 +117,8 @@ $ curl -sL https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-En
 ```
 
 A mismatch there does not necessarily mean tampering. Vendors re-export their sheets, and a new timestamp inside the PDF changes the hash while the wordlist stays the same.
+
+[`sources.tsv`](sources.tsv) pairs every file with the URLs it can be fetched from, so that check can be scripted rather than done by hand. Some files list a fallback, where the same bytes are served from a second host or an archive copy.
 
 The check that survives that is the wordlist itself. `bip-39-english.txt` is the upstream file unchanged, so it can be diffed against the spec directly:
 

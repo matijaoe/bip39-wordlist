@@ -1,0 +1,23 @@
+# Where each file came from. Tab separated: path, url.
+# A file may have several rows. The first is the primary, the rest are fallbacks.
+# Every url here has been fetched and its sha-256 matched against SHA256SUMS.
+# Files with no row have no known source.
+txt/bip-39-english.txt	https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt
+pdf/binary/bip-39-binary-massmux.pdf	https://www.massmux.com/wp-content/uploads/2023/04/BIP39-Binary.pdf
+pdf/decimal/bip-39-decimal-bitplates.pdf	https://www.bitplates.com/uploads/b/e5142000-c8c3-11ea-8d36-7f18722a8965/1753b200-c132-11ed-8ccc-bf9df506f69a.pdf
+pdf/decimal/bip-39-decimal-coinplate-1p.pdf	https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf
+pdf/decimal/bip-39-decimal-coinplate-2p.pdf	https://getcoinplate.com/wp-content/uploads/2022/10/BIP39-Wordlist-2-page-printout-PDF.pdf
+pdf/decimal/bip-39-decimal-cold-code.pdf	https://www.coldcodecrypto.com/s/Cold-Code-Wordlist.pdf
+pdf/decimal/bip-39-decimal-cold-code.pdf	https://static1.squarespace.com/static/5a2ca8258a02c7f96706a59f/t/5a97f128c83025ddb3db17ef/1519907112685/Cold+Code+Wordlist.pdf
+pdf/decimal/bip-39-decimal-coldcard.pdf	https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist-decimal.pdf
+pdf/decimal/bip-39-decimal-coldti.pdf	https://coldti.com/coldti-bip39.pdf
+pdf/decimal/bip-39-decimal-kryptodots.pdf	https://kryptodots.com/wp-content/downloads/bip-0039-English-wordlist-2pag-v2.6.pdf
+pdf/decimal/bip-39-decimal-lwallet.pdf	https://lwallet.com.ua/wp-content/uploads/2022/05/BIP39_Wordlist.pdf
+pdf/decimal/bip-39-decimal-tinyseed.pdf	https://raw.githubusercontent.com/tinyseed-backup/word-lists/main/BIP39_Tinyseed_io.pdf
+pdf/diceware/bip-39-diceware-binary.pdf	https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf
+pdf/diceware/bip-39-diceware-bitbox.pdf	https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf
+pdf/hex/bip-39-hex-coldcard.pdf	https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist.pdf
+pdf/index/bip-39-index-coldbit.pdf	https://coldbit.com/wp-content/uploads/2019/05/bip-39-wordlist.pdf
+pdf/index/bip-39-index-coldbit.pdf	https://web.archive.org/web/2020id_/https://coldbit.com/wp-content/uploads/2019/05/bip-39-wordlist.pdf
+pdf/plain/bip-39-plain-blockplate.pdf	https://cdn.shopify.com/s/files/1/2362/8267/files/bip_39_wordlist_revb.pdf
+pdf/plain/bip-39-plain-btcguide.pdf	https://btcguide.github.io/assets/guide/bip39_wordlist.pdf
