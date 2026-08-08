@@ -67,16 +67,16 @@ binary.txt       0  00000000000  abandon
 - [`decimal-coinplate-1p.pdf`](pdf/decimal/bip-39-decimal-coinplate-1p.pdf) - 1 page, A4 - [source](https://getcoinplate.com/wp-content/uploads/2022/05/BIP39-Wordlist-English-one-page-printable.pdf)
 - [`decimal-coinplate-2p.pdf`](pdf/decimal/bip-39-decimal-coinplate-2p.pdf) - 2 pages, A4 - [source](https://getcoinplate.com/wp-content/uploads/2022/10/BIP39-Wordlist-2-page-printout-PDF.pdf)
   - larger type than the one-page sheet
-- [`decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, US Letter
+- [`decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf) - 2 pages, US Letter - [source](https://www.coldcodecrypto.com/s/Cold-Code-Wordlist.pdf)
 - [`decimal-coldcard.pdf`](pdf/decimal/bip-39-decimal-coldcard.pdf) - 4 pages, US Letter - [source](https://raw.githubusercontent.com/Coldcard/wordlist-paper/master/wordlist-decimal.pdf)
 - [`decimal-coldti.pdf`](pdf/decimal/bip-39-decimal-coldti.pdf) - 7 pages, US Letter - [source](https://coldti.com/coldti-bip39.pdf)
 - [`decimal-kryptodots.pdf`](pdf/decimal/bip-39-decimal-kryptodots.pdf) - 2 pages, A4 - [source](https://kryptodots.com/wp-content/downloads/bip-0039-English-wordlist-2pag-v2.6.pdf)
 - [`decimal-lwallet.pdf`](pdf/decimal/bip-39-decimal-lwallet.pdf) - 1 page, A4 - [source](https://lwallet.com.ua/wp-content/uploads/2022/05/BIP39_Wordlist.pdf)
-- [`decimal-tinyseed.pdf`](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4
+- [`decimal-tinyseed.pdf`](pdf/decimal/bip-39-decimal-tinyseed.pdf) - 6 pages, A4 - [source](https://raw.githubusercontent.com/tinyseed-backup/word-lists/main/BIP39_Tinyseed_io.pdf)
 
 #### Index (0 to 2047)
 
-- [`index-coldbit.pdf`](pdf/index/bip-39-index-coldbit.pdf) - 1 page, A4
+- [`index-coldbit.pdf`](pdf/index/bip-39-index-coldbit.pdf) - 1 page, A4 - [source](https://coldbit.com/wp-content/uploads/2019/05/bip-39-wordlist.pdf)
 
 #### Hexadecimal (000 to 7FF)
 
@@ -89,15 +89,15 @@ binary.txt       0  00000000000  abandon
 
 #### Diceware
 
-- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4
+- [`diceware-bitbox.pdf`](pdf/diceware/bip-39-diceware-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
   - five dice rolls and a coin flip
 - [`diceware-binary.pdf`](pdf/diceware/bip-39-diceware-binary.pdf) - 2 pages, A4
   - eleven bits from coins or dice
 
 #### Plain (no numbering)
 
-- [`plain-blockplate.pdf`](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, US Letter
-- [`plain-btcguide.pdf`](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
+- [`plain-blockplate.pdf`](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, US Letter - [source](https://cdn.shopify.com/s/files/1/2362/8267/files/bip_39_wordlist_revb.pdf)
+- [`plain-btcguide.pdf`](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4 - [source](https://btcguide.github.io/assets/guide/bip39_wordlist.pdf)
 
 ## Verifying
 
