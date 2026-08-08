@@ -187,7 +187,7 @@ all checks passed
 
 GitHub Actions runs these exact two commands on every push and pull request, so the badge above means what a clean local run means. Together they guarantee that every wordlist matches the BIP byte for byte, that every derived file follows from English, that nothing is missing from `SHA256SUMS`, and that no link in this README is broken.
 
-A separate weekly job re-fetches every URL in [`sources.tsv`](sources.tsv) and reports when a vendor changes their file. It does not fail the build, because a vendor re-exporting a PDF is not a fault here.
+A separate weekly job re-fetches every URL in `sources.tsv` and reports when a vendor changes their file. It does not fail the build, because a vendor re-exporting a PDF is not a fault here.
 
 ## License
 
