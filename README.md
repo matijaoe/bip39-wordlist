@@ -146,6 +146,40 @@ Upstream plain lists match the BIP byte for byte:
 $ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/lang/bip-39-english.txt
 ```
 
+## Checks
+
+The section above is for checking a file you downloaded. These check the repo itself. Both need only Python 3 and a shell, with nothing to install.
+
+`scripts/verify.py` proves the wordlists are right. Each one is matched against its pinned hash from bitcoin/bips, and every derived file is rebuilt from English and compared:
+
+```console
+$ python3 scripts/verify.py
+  upstream wordlists       10 ok
+  english properties       3 ok
+  file shape               44 ok
+  derived txt              10 ok
+  json                     3 ok
+
+all checks passed
+```
+
+`scripts/check.sh` proves the bookkeeping agrees:
+
+```console
+$ ./scripts/check.sh
+  recorded hashes still match                    ok
+  every file is recorded in SHA256SUMS           ok
+  every README source url is in sources.tsv      ok
+  every sources.tsv path exists                  ok
+  every relative README link resolves            ok
+
+all checks passed
+```
+
+Failures name the file and what was wrong, so the tallies above only appear when everything is in order.
+
+Both run on every push and pull request. CI runs these exact two commands, so a green tick means what a clean run here means. A separate weekly job re-fetches every URL in [`sources.tsv`](sources.tsv) and reports when a vendor changes their file, without failing the build.
+
 ## License
 
 This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. The PDFs are the work of their respective vendors and are redistributed here for convenience. The format icons are from [Material Icon Theme](https://github.com/material-extensions/vscode-material-icon-theme), MIT licensed.
