@@ -43,8 +43,8 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ### `.txt`
 
-- [`bip-39-plain.txt`](txt/bip-39-plain.txt) - one word per line
-- [`bip-39-plain-oneline.txt`](txt/bip-39-plain-oneline.txt) - all 2048 words on one line, space separated
+- [`bip-39-english.txt`](txt/bip-39-english.txt) - the upstream BIP-39 wordlist, verbatim
+- [`bip-39-oneline.txt`](txt/bip-39-oneline.txt) - all 2048 words on one line, space separated
 - [`bip-39-decimal.txt`](txt/bip-39-decimal.txt) - number and word, from 1
 - [`bip-39-index.txt`](txt/bip-39-index.txt) - index and word, from 0
 - [`bip-39-binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
