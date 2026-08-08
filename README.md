@@ -1,5 +1,7 @@
 # BIP-39 wordlists
 
+[![integrity](https://github.com/matijaoe/bip39-wordlist/actions/workflows/integrity.yml/badge.svg)](https://github.com/matijaoe/bip39-wordlist/actions/workflows/integrity.yml)
+
 BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
 ## Naming
@@ -145,6 +147,42 @@ Upstream plain lists match the BIP byte for byte:
 ```console
 $ curl -sL https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt | diff - txt/lang/bip-39-english.txt
 ```
+
+## Checks
+
+Verifying above is for a file you downloaded. These two scripts check the repo itself. They need Python 3 and a shell, with nothing to install.
+
+`scripts/verify.py` checks the wordlists are correct. Every list is compared against its pinned hash from the BIP, and every derived file is rebuilt from English and compared:
+
+```console
+$ python3 scripts/verify.py
+  upstream wordlists       10 ok
+  english properties       3 ok
+  file shape               44 ok
+  derived txt              10 ok
+  json                     3 ok
+
+all checks passed
+```
+
+`scripts/check.sh` checks the bookkeeping agrees:
+
+```console
+$ ./scripts/check.sh
+  recorded hashes still match                    ok
+  every file is recorded in SHA256SUMS           ok
+  every README source url is in sources.tsv      ok
+  every sources.tsv path exists                  ok
+  every relative README link resolves            ok
+
+all checks passed
+```
+
+Only failures print detail, so a run that lists tallies is a clean one.
+
+GitHub Actions runs these exact two commands on every push and pull request, so the badge above means what a clean local run means. Together they guarantee that every wordlist matches the BIP byte for byte, that every derived file follows from English, that nothing is missing from `SHA256SUMS`, and that no link in this README is broken.
+
+A separate weekly job re-fetches every URL in [`sources.tsv`](sources.tsv) and reports when a vendor changes their file. It does not fail the build, because a vendor re-exporting a PDF is not a fault here.
 
 ## License
 
