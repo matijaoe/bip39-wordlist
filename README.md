@@ -1,51 +1,92 @@
 # BIP-39 English Wordlists
 
-Collection of BIP-39 english wordlists in different formats.
+The BIP-39 english wordlist in a range of formats, plus printable backup sheets
+from various hardware and metal-plate vendors.
 
-## Available Formats
+## Naming
+
+Files are named `bip-39-<format>-<source>.<ext>`:
+
+| Format | Numbering | Range |
+| --- | --- | --- |
+| `plain` | none, words only | — |
+| `decimal` | decimal, from 1 | `1`-`2048` |
+| `index` | decimal, from 0 — the BIP-39 index | `0`-`2047` |
+| `hex` | hexadecimal, from 0 | `000`-`7FF` |
+| `binary` | 11-bit binary, from 0 | `00000000000`-`11111111111` |
+| `diceware` | keyed by dice rolls or bit patterns | — |
+
+`decimal` and `index` are both decimal and differ only in where they start.
+Wallets and the BIP-39 spec use the 0-based `index`; most printed backup plates
+number from 1, so rows are easier to count by hand.
+
+A sheet showing more than one notation is filed under the least common one — the
+`binary` sheets also print a decimal index, but the bits are why you would reach
+for them.
+
+## Formats
 
 ### `.json`
-- [Array: `bip-39-array.json`](json/bip-39-array.json) - Simple array of all 2048 BIP-39 words
-- [Map: `bip-39-map.json`](json/bip-39-map.json) - Map of words to their index
-- [Tuples: `bip-39-tuples.json`](json/bip-39-tuples.json) - Array of word-index tuples
+
+- [`bip-39-array.json`](json/bip-39-array.json) - the 2048 words in order
+- [`bip-39-tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
+- [`bip-39-records.json`](json/bip-39-records.json) - `{index, order, binary, word}` objects
+
+Everything except the word itself is derived from the index, so you can compute
+what you need rather than pick a file for it:
+
+```js
+order  = index + 1
+binary = index.toString(2).padStart(11, '0')
+hex    = index.toString(16).toUpperCase().padStart(3, '0')
+```
 
 ### `.txt`
-- [Original: `bip-39-english.txt`](txt/bip-39-english.txt) - Plain English wordlist
-- [Binary: `bip-39-binary.txt`](txt/bip-39-binary.txt) - Binary format representation
-- [Decimal: `bip-39-decimal.txt`](txt/bip-39-decimal.txt) - Decimal format representation
-- [Indexed: `bip-39-index.txt`](txt/bip-39-index.txt) - Indexed wordlist
-- [Single-line: `bip-39-oneline.txt`](txt/bip-39-oneline.txt) - Single-line format
+
+- [`bip-39-plain.txt`](txt/bip-39-plain.txt) - one word per line
+- [`bip-39-plain-oneline.txt`](txt/bip-39-plain-oneline.txt) - all 2048 words on one line, space separated
+- [`bip-39-decimal.txt`](txt/bip-39-decimal.txt) - number and word, from 1
+- [`bip-39-index.txt`](txt/bip-39-index.txt) - index and word, from 0
+- [`bip-39-binary.txt`](txt/bip-39-binary.txt) - index, 11-bit binary and word
 
 ### `.pdf`
-#### Decimal (starts at 1)
-- [Bitplates: `bip-39-decimal-bitplates.pdf`](pdf/decimal/bip-39-decimal-bitplates.pdf)
-- [Coinplate: `bip-39-decimal-coinplate.pdf`](pdf/decimal/bip-39-decimal-coinplate.pdf)
-- [Cold Code: `bip-39-decimal-cold-code.pdf`](pdf/decimal/bip-39-decimal-cold-code.pdf)
-- [Coldcard: `bip-39-decimal-coldcard.pdf`](pdf/decimal/bip-39-decimal-coldcard.pdf)
-- [Crypto Numeris (1 page): `bip-39-decimal-crypto-numeris-1-page.pdf`](pdf/decimal/bip-39-decimal-crypto-numeris-1-page.pdf)
-- [Crypto Numeris (2 pages): `bip-39-decimal-crypto-numeris-2-page.pdf`](pdf/decimal/bip-39-decimal-crypto-numeris-2-page.pdf)
-- [Tiny Seed: `bip-39-decimal-tiny-seed.pdf`](pdf/decimal/bip-39-decimal-tiny-seed.pdf)
-- [Kryptodots: `bip-39-kryptodots.pdf`](pdf/decimal/bip-39-kryptodots.pdf)
-- [LWallet: `bip-39-lwallet.pdf`](pdf/decimal/bip-39-lwallet.pdf)
 
-#### Indexed (starts at 0)
-- [Coldbit: `bip-39-zero-indexed-coldbit.pdf`](pdf/zero-indexed/bip-39-zero-indexed-coldbit.pdf)
+#### Decimal — 1 to 2048
 
-#### Hexadecimal (starts at 0)
-- [Coldcard: `bip-39-hex-coldcard.pdf`](pdf/hex/bip-39-hex-coldcard.pdf) - Indexed `000`-`7FF`
+- [Bitplates](pdf/decimal/bip-39-decimal-bitplates.pdf)
+- [Coinplate](pdf/decimal/bip-39-decimal-coinplate.pdf)
+- [Cold Code](pdf/decimal/bip-39-decimal-cold-code.pdf)
+- [Coldcard](pdf/decimal/bip-39-decimal-coldcard.pdf)
+- [Kryptodots](pdf/decimal/bip-39-decimal-kryptodots.pdf)
+- [LWallet](pdf/decimal/bip-39-decimal-lwallet.pdf)
+- [Tiny Seed](pdf/decimal/bip-39-decimal-tinyseed.pdf)
+
+#### Index — 0 to 2047
+
+- [Coldbit](pdf/index/bip-39-index-coldbit.pdf)
+
+#### Hexadecimal — 000 to 7FF
+
+- [Coldcard](pdf/hex/bip-39-hex-coldcard.pdf)
 
 #### Binary
-- [Lookup table: `bip-39-0-indexed-binary-lookup-table.pdf`](pdf/binary/bip-39-0-indexed-binary-lookup-table.pdf)
-- [Binary: `bip-39-binary.pdf`](pdf/binary/bip-39-binary.pdf)
 
-#### Non-numbered
-- [BTC Guide: `bip-39-btcguide.pdf`](pdf/non-numbered/bip-39-btcguide.pdf)
-- [Blockplate: `bip-39-single-page-blockplate.pdf`](pdf/non-numbered/bip-39-single-page-blockplate.pdf)
+- [massmux](pdf/binary/bip-39-binary-massmux.pdf) - index, word and 11-bit binary
+- [Lookup table](pdf/binary/bip-39-binary-lookup-table.pdf) - grid in blocks of 64
 
 #### Diceware
-- [Binary to word lookup table: `bip-39-binary-to-word-lookup-table.pdf`](pdf/diceware/bip-39-binary-to-word-lookup-table.pdf)
-- [BitBox: Diceware lookup table: `bip-39-diceware-lookup-table-bitbox.pdf`](pdf/diceware/bip-39-diceware-lookup-table-bitbox.pdf)
+
+- [BitBox02](pdf/diceware/bip-39-diceware-bitbox02.pdf) - five d6 rolls rerolling 5 and 6, then a sixth roll or coin flip
+- [Binary](pdf/diceware/bip-39-diceware-binary.pdf) - 11 bits, from coin flips or dice
+
+#### Plain — no numbering
+
+- [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf)
+- [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf)
 
 ## License
 
-This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. 
+This is a derivative work of the original BIP-39 wordlist. See
+[BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more
+information. The PDFs are the work of their respective vendors and are
+redistributed here for convenience.
