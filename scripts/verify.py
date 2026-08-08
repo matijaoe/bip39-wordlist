@@ -93,7 +93,7 @@ check("first four letters unique", len({w[:4] for w in words}) == len(words))
 check("every word is 3 to 8 letters", all(3 <= len(w) <= 8 and w.isalpha() for w in words))
 
 group("file shape")
-for name in ["decimal", "index", "hex", "binary", "oneline"] + UPSTREAM_LANGS:
+for name in ["decimal", "index", "hex", "bits", "binary", "oneline"] + UPSTREAM_LANGS:
     path = lang_path(name) if name in UPSTREAM_LANGS else f"wordlists/txt/bip-39-{name}.txt"
     raw = (ROOT / path).read_text()
     label = pathlib.Path(path).name
@@ -120,6 +120,10 @@ check("index.txt words match", [r[1] for r in rows] == words)
 rows = [ln.split() for ln in read("wordlists/txt/bip-39-hex.txt")]
 check("hex.txt values from 000 to 7FF", [r[0] for r in rows] == [f"{i:03X}" for i in range(2048)])
 check("hex.txt words match", [r[1] for r in rows] == words)
+
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-bits.txt")]
+check("bits.txt values are the 11 bit index", [r[0] for r in rows] == [format(i, "011b") for i in range(2048)])
+check("bits.txt words match", [r[1] for r in rows] == words)
 
 rows = [ln.split() for ln in read("wordlists/txt/bip-39-binary.txt")]
 check("binary.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])

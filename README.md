@@ -52,6 +52,7 @@ From `lang/english.txt`:
 - [`decimal.txt`](wordlists/txt/bip-39-decimal.txt) - number and word, starting at 1
 - [`index.txt`](wordlists/txt/bip-39-index.txt) - index and word, starting at 0
 - [`hex.txt`](wordlists/txt/bip-39-hex.txt) - hex and word, starting at 000
+- [`bits.txt`](wordlists/txt/bip-39-bits.txt) - 11-bit binary and word
 - [`binary.txt`](wordlists/txt/bip-39-binary.txt) - index, 11-bit binary and word
 
 ```
@@ -60,6 +61,7 @@ oneline.txt   abandon ability able about above absent …
 decimal.txt      1  abandon
 index.txt        0  abandon
 hex.txt        000  abandon
+bits.txt      00000000000  abandon
 binary.txt       0  00000000000  abandon
 ```
 
