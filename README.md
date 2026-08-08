@@ -1,7 +1,6 @@
 # BIP-39 English Wordlists
 
-The BIP-39 english wordlist in a range of formats, plus printable backup sheets
-from various hardware and metal-plate vendors.
+The BIP-39 english wordlist in a range of formats, plus printable backup sheets from various hardware and metal-plate vendors.
 
 ## Naming
 
@@ -16,13 +15,11 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 | `binary` | 11-bit binary, from 0 | `00000000000`-`11111111111` |
 | `diceware` | keyed by dice rolls or bit patterns | — |
 
-`decimal` and `index` are both decimal and differ only in where they start.
-Wallets and the BIP-39 spec use the 0-based `index`; most printed backup plates
-number from 1, so rows are easier to count by hand.
+`decimal` and `index` are both decimal and differ only in where they start. Wallets and the BIP-39 spec use the 0-based `index`; most printed backup plates number from 1, so rows are easier to count by hand.
 
-A sheet showing more than one notation is filed under the least common one — the
-`binary` sheets also print a decimal index, but the bits are why you would reach
-for them.
+A sheet showing more than one notation is filed under the least common one — the `binary` sheets also print a decimal index, but the bits are why you would reach for them.
+
+The last part of the name is whatever tells a file apart from others in its format: the vendor where there is one, a description where there isn't.
 
 ## Formats
 
@@ -32,8 +29,7 @@ for them.
 - [`bip-39-tuples.json`](json/bip-39-tuples.json) - `[index, binary, word]` rows
 - [`bip-39-records.json`](json/bip-39-records.json) - `{index, order, binary, word}` objects
 
-Everything except the word itself is derived from the index, so you can compute
-what you need rather than pick a file for it:
+Everything except the word itself is derived from the index, so you can compute what you need rather than pick a file for it:
 
 ```js
 order  = index + 1
@@ -86,7 +82,4 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 ## License
 
-This is a derivative work of the original BIP-39 wordlist. See
-[BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more
-information. The PDFs are the work of their respective vendors and are
-redistributed here for convenience.
+This is a derivative work of the original BIP-39 wordlist. See [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) for more information. The PDFs are the work of their respective vendors and are redistributed here for convenience.
