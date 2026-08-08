@@ -53,6 +53,7 @@ From `lang/english.txt`:
 - [`index.txt`](wordlists/txt/bip-39-index.txt) - index and word, starting at 0
 - [`hex.txt`](wordlists/txt/bip-39-hex.txt) - hex and word, starting at 000
 - [`binary.txt`](wordlists/txt/bip-39-binary.txt) - 11-bit binary and word
+- [`diceware-bitbox.txt`](wordlists/txt/bip-39-diceware-bitbox.txt) - five dice and a coin flip, the BitBox method as text
 - [`index-binary.txt`](wordlists/txt/bip-39-index-binary.txt) - index, 11-bit binary and word
 
 ```

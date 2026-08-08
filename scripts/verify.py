@@ -93,10 +93,12 @@ check("first four letters unique", len({w[:4] for w in words}) == len(words))
 check("every word is 3 to 8 letters", all(3 <= len(w) <= 8 and w.isalpha() for w in words))
 
 group("file shape")
-for name in ["decimal", "index", "hex", "binary", "index-binary", "oneline"] + UPSTREAM_LANGS:
-    path = lang_path(name) if name in UPSTREAM_LANGS else f"wordlists/txt/bip-39-{name}.txt"
-    raw = (ROOT / path).read_text()
-    label = pathlib.Path(path).name
+# Taken from disk rather than a list, so a new txt file is shape checked the
+# moment it is added instead of when someone remembers to name it here.
+for path in sorted((ROOT / "wordlists/txt").rglob("*.txt")):
+    raw = path.read_text()
+    label = path.name
+    name = label.removeprefix("bip-39-").removesuffix(".txt")
     check(f"{label} ends with exactly one newline",
           raw.endswith("\n") and not raw.endswith("\n\n"))
     check(f"{label} has no trailing whitespace",
@@ -129,6 +131,16 @@ rows = [ln.split() for ln in read("wordlists/txt/bip-39-index-binary.txt")]
 check("index-binary.txt numbers from 0", [r[0] for r in rows] == [str(i) for i in range(2048)])
 check("index-binary.txt bits are the 11 bit index", [r[1] for r in rows] == [format(i, "011b") for i in range(2048)])
 check("index-binary.txt words match", [r[2] for r in rows] == words)
+
+rows = [ln.split() for ln in read("wordlists/txt/bip-39-diceware-bitbox.txt")]
+# BitBox rolls a d6 five times, rerolling 5 and 6, then flips a coin.
+# That is base 4 to five digits times two, which is exactly 2048.
+expected = [
+    [str(((i >> 1) >> (2 * (4 - k)) & 3) + 1) for k in range(5)]
+    + ["h" if i % 2 == 0 else "t", w]
+    for i, w in enumerate(words)
+]
+check("diceware-bitbox.txt is five base-4 dice then a coin", rows == expected)
 
 group("json")
 data = json.loads((ROOT / "wordlists/json/bip-39-array.json").read_text())
