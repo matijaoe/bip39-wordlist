@@ -2,6 +2,27 @@
 
 The BIP-39 English wordlist in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
+## Naming
+
+Files are named `bip-39-<format>-<source>.<ext>`:
+
+
+| Format     | Numbering                  | Range                       |
+| ---------- | -------------------------- | --------------------------- |
+| `plain`    | none, words only           | —                           |
+| `decimal`  | decimal, starts at 1       | `1`-`2048`                  |
+| `index`    | decimal, starts at 0       | `0`-`2047`                  |
+| `hex`      | hexadecimal, starts at 0   | `000`-`7FF`                 |
+| `binary`   | 11-bit binary, starts at 0 | `00000000000`-`11111111111` |
+| `diceware` | dice rolls or bit patterns | —                           |
+
+
+`decimal` and `index` differ only in where the numbering starts. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
+
+Sheets showing more than one notation are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
+
+The last part of the name is the vendor, or a short description where there is no vendor.
+
 ## Formats
 
 The `.json` and `.txt` files are generated from the [BIP-39 English wordlist](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). `bip-39-english.txt` is that file unchanged, so it can be diffed against the spec directly.
@@ -72,25 +93,6 @@ binary.txt       0  00000000000  abandon
 
 - [Blockplate](pdf/plain/bip-39-plain-blockplate.pdf) - 1 page, Letter
 - [BTC Guide](pdf/plain/bip-39-plain-btcguide.pdf) - 2 pages, A4
-
-## Naming
-
-Files are named `bip-39-<format>-<source>.<ext>`:
-
-| Format | Numbering | Range |
-| --- | --- | --- |
-| `plain` | none, words only | — |
-| `decimal` | decimal, starts at 1 | `1`-`2048` |
-| `index` | decimal, starts at 0 | `0`-`2047` |
-| `hex` | hexadecimal, starts at 0 | `000`-`7FF` |
-| `binary` | 11-bit binary, starts at 0 | `00000000000`-`11111111111` |
-| `diceware` | dice rolls or bit patterns | — |
-
-`decimal` and `index` differ only in where the numbering starts. `index` is zero-indexed, which is how wallets and the BIP-39 spec count. `decimal` is one-indexed, which is how most printed plates number their rows.
-
-Sheets showing more than one notation are filed under the rarer one. The `binary` sheets also print a decimal index, but you would use them for the bits.
-
-The last part of the name is the vendor, or a short description where there is no vendor.
 
 ## License
 
