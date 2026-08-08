@@ -1,6 +1,6 @@
 # BIP-39 English Wordlists
 
-Whole bunch of BIP-39 english wordlists in different formats.
+Collection of BIP-39 english wordlists in different formats.
 
 ## Available Formats
 
@@ -17,7 +17,6 @@ Whole bunch of BIP-39 english wordlists in different formats.
 - [Single-line: `bip-39-oneline.txt`](txt/bip-39-oneline.txt) - Single-line format
 
 ### `.pdf`
-
 #### Decimal (starts at 1)
 - [Bitplates: `bip-39-decimal-bitplates.pdf`](pdf/decimal/bip-39-decimal-bitplates.pdf)
 - [Coinplate: `bip-39-decimal-coinplate.pdf`](pdf/decimal/bip-39-decimal-coinplate.pdf)
@@ -31,7 +30,9 @@ Whole bunch of BIP-39 english wordlists in different formats.
 
 #### Indexed (starts at 0)
 - [Coldbit: `bip-39-zero-indexed-coldbit.pdf`](pdf/zero-indexed/bip-39-zero-indexed-coldbit.pdf)
-- [Coldcard: `bip-39-zero-indexed-coldcard.pdf`](pdf/zero-indexed/bip-39-zero-indexed-coldcard.pdf)
+
+#### Hexadecimal (starts at 0)
+- [Coldcard: `bip-39-hex-coldcard.pdf`](pdf/hex/bip-39-hex-coldcard.pdf) - Indexed `000`-`7FF`
 
 #### Binary
 - [Lookup table: `bip-39-0-indexed-binary-lookup-table.pdf`](pdf/binary/bip-39-0-indexed-binary-lookup-table.pdf)
