@@ -57,13 +57,14 @@ From `lang/english.txt`:
 - [`index-binary.txt`](wordlists/txt/bip-39-index-binary.txt) - index, 11-bit binary and word
 
 ```
-english.txt        abandon
-oneline.txt        abandon ability able about above absent …
-decimal.txt           1  abandon
-index.txt             0  abandon
-hex.txt             000  abandon
-binary.txt      00000000000  abandon
-index-binary.txt      0  00000000000  abandon
+english.txt          abandon
+oneline.txt          abandon ability able about above absent …
+decimal.txt             1  abandon
+index.txt               0  abandon
+hex.txt               000  abandon
+binary.txt           00000000000  abandon
+index-binary.txt        0  00000000000  abandon
+diceware-bitbox.txt  1 1 1 1 1  h  abandon
 ```
 
 ###  `.json`
