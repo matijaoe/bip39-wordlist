@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generated files match the wordlist
+        run: python3 scripts/verify.py
+
       - name: Recorded hashes still match
         run: sha256sum -c SHA256SUMS
 
