@@ -35,6 +35,9 @@ while IFS=$'\t' read -r file url; do
 done < sources.tsv
 [ -z "$miss" ] && note "sources.tsv paths exist" "ok" || { note "sources.tsv paths exist" "FAIL"; printf '%s' "$miss" | while read -r l; do bad "$l"; done; fail=1; }
 
+wrapped=$(grep -n '`\[[^]]*\](' README.md || true)
+[ -z "$wrapped" ] && note "README links are not inside code spans" "ok" || { note "README links are not inside code spans" "FAIL"; echo "$wrapped" | while read -r l; do bad "line ${l%%:*} renders as text, backticks belong around the label"; done; fail=1; }
+
 miss=""
 while read -r target; do
   case "$target" in http*) continue;; esac
