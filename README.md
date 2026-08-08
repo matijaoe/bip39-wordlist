@@ -169,11 +169,11 @@ all checks passed
 
 ```console
 $ ./scripts/check.sh
-  recorded hashes still match                    ok
-  every file is recorded in SHA256SUMS           ok
-  every README source url is in sources.tsv      ok
-  every sources.tsv path exists                  ok
-  every relative README link resolves            ok
+  hashes match SHA256SUMS                        ok
+  SHA256SUMS covers every file                   ok
+  README sources are in sources.tsv              ok
+  sources.tsv paths exist                        ok
+  README links resolve                           ok
 
 all checks passed
 ```
