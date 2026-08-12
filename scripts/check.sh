@@ -46,7 +46,7 @@ wrapped=$(grep -n '`\[[^]]*\](' README.md || true)
 
 miss=""
 while read -r target; do
-  case "$target" in http*) continue;; esac
+  case "$target" in http*|'#'*) continue;; esac
   [ -e "$target" ] || miss+="broken README link: $target"$'\n'
 done < <(grep -o '](\([^)]*\))\|src="\([^"]*\)"' README.md | sed 's/](\(.*\))/\1/; s/src="\(.*\)"/\1/')
 [ -z "$miss" ] && note "README links resolve" "ok" || { note "README links resolve" "FAIL"; printf '%s' "$miss" | while read -r l; do bad "$l"; done; fail=1; }

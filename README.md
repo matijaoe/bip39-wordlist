@@ -4,6 +4,10 @@
 
 BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
+[pdf](#pdf) · [decimal](#decimal-1-to-2048) · [index](#index-0-to-2047) · [hex](#hexadecimal-000-to-7ff) · [binary](#binary-11-bits-0-to-2047) · [diceware](#diceware) · [plain](#plain-no-numbering)
+
+[txt](#txt) · [json](#json)
+
 ## Naming
 
 Files are named `bip-39-<format>-<source>.<ext>`:
@@ -16,12 +20,14 @@ Files are named `bip-39-<format>-<source>.<ext>`:
 | `index`    | decimal, starts at 0       | `0`-`2047`                  |
 | `hex`      | hexadecimal, starts at 0   | `000`-`7FF`                 |
 | `binary`   | 11-bit binary, starts at 0 | `00000000000`-`11111111111` |
-| `diceware` | dice rolls or bit patterns | —                           |
+| `diceware` | rolls or draws as printed  | —                           |
 
 
 `decimal` and `index` differ only in the start value. `index` starts at 0 (BIP-39 / wallets). `decimal` starts at 1 (most plates).
 
-Sheets with more than one notation use the rarer one, for example binary over decimal.
+`binary` is eleven bits as the lookup key. Coin flips, a d6 read as odd/even, or cards mapped to bits still use a binary list. `diceware` is when the sheet's keys are the physical results (`11111 h`, d8 faces, a card).
+
+Sheets with more than one notation use the rarer one, for example binary over decimal, or a card map over binary.
 
 The last part of the name is the vendor, or a short label if there is none. Plain lists live under `wordlists/txt/lang/` and use the language name from the [BIP-39 wordlists](https://github.com/bitcoin/bips/tree/master/bip-0039). The lists below drop the `bip-39-` prefix.
 
@@ -64,7 +70,7 @@ index.txt            0  abandon
 hex.txt            000  abandon
 binary.txt        00000000000  abandon
 index-binary.txt     0  00000000000  abandon
-diceware-d4.txt   1 1 1 1 1  h  abandon
+diceware-d4.txt   11111 h  abandon
 ```
 
 ###  `.json`
@@ -113,24 +119,38 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 
 - [`binary-massmux.pdf`](wordlists/pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4 - [source](https://www.massmux.com/wp-content/uploads/2023/04/BIP39-Binary.pdf)
 - [`binary-lookup-table.pdf`](wordlists/pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, US Letter
+- [`binary-blockstream.pdf`](wordlists/pdf/binary/bip-39-binary-blockstream.pdf) - 51 pages, A4 - [print source](https://help.blockstream.com/generate-recovery-phrase-offline-binary-table)
+  - these methods first convert their results to 11 bits:
+    - [Coin](https://help.blockstream.com/generate-recovery-phrase-offline-coin) - one coin; 11 flips per word
+    - [D6](https://help.blockstream.com/generate-recovery-phrase-offline-d6) - one d6; roll until you collect 11 bits per word
+    - [D8](https://help.blockstream.com/generate-recovery-phrase-offline-d8) - one d8; four rolls per word; keep the first 11 bits
+    - [Poker](https://help.blockstream.com/generate-recovery-phrase-offline-poker) - one 52-card deck without Jokers; use the card map; return each card and shuffle after each draw; printable guide under Diceware
+    - [Piacentine](https://help.blockstream.com/generate-recovery-phrase-offline-piacentine) - one 40-card regional deck; use the card map; return each card and shuffle after each draw
+    - [Tarot](https://help.blockstream.com/generate-recovery-phrase-offline-tarot) - one 78-card deck; use the card map; return each card and shuffle after each draw
 
 #### Diceware
 
-Every method below maps a throw to a word. They differ in what you have to throw, so pick by the dice you own.
-
-- [`diceware-binary-rudefox.pdf`](wordlists/pdf/diceware/bip-39-diceware-binary-rudefox.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
-  - 11 bits from coin flips or any two-sided throw, plus a page to record rolls
-- [`diceware-binary-veeb.pdf`](wordlists/pdf/diceware/bip-39-diceware-binary-veeb.pdf) - 4 pages, A4 - [source](https://raw.githubusercontent.com/veebch/Bip39-Dice/master/BIP39DiceManualCalculator.pdf)
-  - throw 11 dice of any kind, read odd as 0 and even as 1, then add the values up
-- [`diceware-d4-bitbox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d4-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
-  - five throws of 1 to 4 and a coin flip, rerolling 5 and 6 on a d6
-  - BitBox also publish [step-by-step instructions](https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf) for it
-- [`diceware-d4-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d4-bitcoinkeys.pdf) - 4 pages, US Letter - [source](https://bitcoinkeys.guide/bip39-word-table.pdf)
-  - the same five throws and a coin flip, laid out differently
+- [`diceware-d8-rudefox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d8-rudefox.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
+  - eleven d8 rolls for each group of three provisional words; includes a 24-word worksheet
+- [`diceware-d6-veeb.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-veeb.pdf) - 4 pages, A4 - [source](https://raw.githubusercontent.com/veebch/Bip39-Dice/master/BIP39DiceManualCalculator.pdf)
+  - eleven fair d6 rolls per provisional word; read odd as 0 and even as 1, then look up the bits
+- [`diceware-d6-bitbox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
+  - one d6 and an optional coin; record five results from 1 to 4; reroll 5 or 6; then flip the coin or roll once more
+  - BitBox also publishes [step-by-step instructions](https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf)
+- [`diceware-d6-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-bitcoinkeys.pdf) - 4 pages, US Letter - [source](https://bitcoinkeys.guide/bip39-word-table.pdf)
+  - one d6 and one coin; keep five results from 1 to 4; reroll 5 or 6; then flip the coin once per provisional word
+  - [`diceware-d6-12w-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-12w-bitcoinkeys.pdf) - adds instructions and a worksheet for a 12-word phrase, 6 pages, US Letter - [source](https://bitcoinkeys.guide/roll-12-word-seed.pdf)
+  - [`diceware-d6-24w-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-24w-bitcoinkeys.pdf) - adds instructions and a worksheet for a 24-word phrase, 6 pages, US Letter - [source](https://bitcoinkeys.guide/roll-24-word-seed.pdf)
 - [`diceware-d6-taelfrinn.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-taelfrinn.pdf) - 3 pages, US Letter - [source](https://raw.githubusercontent.com/taelfrinn/Bip39-diceware/master/coin_plus_d6_bip39.pdf)
-  - a coin and four ordinary d6, rerolling when the throw lands outside the table
-- [`diceware-d16-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf) - 17 pages, US Letter - [source](https://storage.googleapis.com/dxp-production-assets/content/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice/JadeDiceRollsGuide.pdf)
-  - two d16 and one d8, which covers all 2048 words with nothing to reroll
+  - four d6 and one coin; roll all four dice and flip the coin once per provisional word; reroll excluded results
+- [`diceware-poker-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-poker-blockstream.pdf) - 53 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-poker)
+  - one 52-card deck without Jokers; return each card and shuffle after each draw; includes a card map and the binary table
+- [`diceware-d16-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf) - 51 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-d8-d16-d16)
+  - one d8 and two d16 dice; roll each die once per word
+- [`diceware-d8-coin-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d8-coin-blockstream.pdf) - 51 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-d8-d8-d8-coin-coin)
+  - three d8 dice and two coins; roll each die once and flip each coin once per word
+- [`diceware-d16-blockstream-legacy.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream-legacy.pdf) - 17 pages, US Letter - [source](https://storage.googleapis.com/dxp-production-assets/content/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice/JadeDiceRollsGuide.pdf) - legacy Jade guide
+  - two d16 and one d8; roll all three dice once for each of the first 11 or 23 words
 
 #### Plain (no numbering)
 
@@ -153,13 +173,13 @@ To compare a vendor file to the copy here, hash theirs and match the line in `SH
 $ curl -sL https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf | shasum -a 256
 9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535
 
-$ grep diceware-bitbox SHA256SUMS
-9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  wordlists/pdf/diceware/bip-39-diceware-bitbox.pdf
+$ grep d6-bitbox SHA256SUMS
+9db3c8986b20737a3b76207a0fb325fec17fb3221aac32d2df470c2615e37535  wordlists/pdf/diceware/bip-39-diceware-d6-bitbox.pdf
 ```
 
 A different hash is not always tampering. Vendors often re-export PDFs; a new timestamp changes the hash even when the words are the same.
 
-[`sources.tsv`](sources.tsv) lists each file and its download URL.
+[`sources.tsv`](sources.tsv) lists each file and its direct download URL.
 
 Upstream plain lists match the BIP byte for byte:
 
@@ -221,6 +241,8 @@ $ curl -sL <url> | shasum -a 256
 ```
 
 Add the row to `sources.tsv` only if that matches. A source link that does not verify is worse than no link.
+
+If the publisher supplies only a print button, save the print view and link the page from the README. Do not add the page to `sources.tsv`, because it does not return the stored PDF bytes.
 
 **A file built here** from `lang/english.txt`. It gets no `sources.tsv` row, because nobody published it. It needs a case in `scripts/verify.py` describing how to rebuild it, and a line in the sample block above if it is a `.txt`.
 
