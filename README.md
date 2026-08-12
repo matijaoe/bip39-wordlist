@@ -4,9 +4,9 @@
 
 BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
-[txt](#txt) · [json](#json) · [pdf](#pdf)
+[pdf](#pdf) · [decimal](#decimal-1-to-2048) · [index](#index-0-to-2047) · [hex](#hexadecimal-000-to-7ff) · [binary](#binary-11-bits-0-to-2047) · [diceware](#diceware) · [plain](#plain-no-numbering)
 
-[decimal](#decimal-1-to-2048) · [index](#index-0-to-2047) · [hex](#hexadecimal-000-to-7ff) · [binary](#binary-11-bits-0-to-2047) · [diceware](#diceware) · [plain](#plain-no-numbering)
+[txt](#txt) · [json](#json)
 
 ## Naming
 
