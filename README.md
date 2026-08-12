@@ -64,7 +64,7 @@ index.txt            0  abandon
 hex.txt            000  abandon
 binary.txt        00000000000  abandon
 index-binary.txt     0  00000000000  abandon
-diceware-d4.txt   1 1 1 1 1  h  abandon
+diceware-d4.txt   11111 h  abandon
 ```
 
 ###  `.json`

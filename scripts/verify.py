@@ -135,9 +135,13 @@ check("index-binary.txt words match", [r[2] for r in rows] == words)
 rows = [ln.split() for ln in read("wordlists/txt/bip-39-diceware-d4.txt")]
 # BitBox rolls a d6 five times, rerolling 5 and 6, then flips a coin.
 # That is base 4 to five digits times two, which is exactly 2048.
+# Rolls are concatenated (11111) and the coin stays its own field.
 expected = [
-    [str(((i >> 1) >> (2 * (4 - k)) & 3) + 1) for k in range(5)]
-    + ["h" if i % 2 == 0 else "t", w]
+    [
+        "".join(str(((i >> 1) >> (2 * (4 - k)) & 3) + 1) for k in range(5)),
+        "h" if i % 2 == 0 else "t",
+        w,
+    ]
     for i, w in enumerate(words)
 ]
 check("diceware-d4.txt is five d4 rolls then a coin", rows == expected)
