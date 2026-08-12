@@ -4,6 +4,10 @@
 
 BIP-39 wordlists in several formats, plus printable backup sheets from hardware and metal-plate vendors.
 
+[txt](#txt) · [json](#json) · [pdf](#pdf)
+
+[decimal](#decimal-1-to-2048) · [index](#index-0-to-2047) · [hex](#hexadecimal-000-to-7ff) · [binary](#binary-11-bits-0-to-2047) · [diceware](#diceware) · [plain](#plain-no-numbering)
+
 ## Naming
 
 Files are named `bip-39-<format>-<source>.<ext>`:
@@ -116,36 +120,37 @@ hex    = index.toString(16).toUpperCase().padStart(3, '0')
 - [`binary-massmux.pdf`](wordlists/pdf/binary/bip-39-binary-massmux.pdf) - 9 pages, A4 - [source](https://www.massmux.com/wp-content/uploads/2023/04/BIP39-Binary.pdf)
 - [`binary-lookup-table.pdf`](wordlists/pdf/binary/bip-39-binary-lookup-table.pdf) - 4 pages, US Letter
 - [`binary-blockstream.pdf`](wordlists/pdf/binary/bip-39-binary-blockstream.pdf) - 51 pages, A4 - [print source](https://help.blockstream.com/generate-recovery-phrase-offline-binary-table)
-  - [Coin](https://help.blockstream.com/generate-recovery-phrase-offline-coin) - one coin; 11 flips per word
-  - [D6](https://help.blockstream.com/generate-recovery-phrase-offline-d6) - one d6; roll until you collect 11 bits per word
-  - [D8](https://help.blockstream.com/generate-recovery-phrase-offline-d8) - one d8; four rolls per word; keep the first 11 bits
-  - [Poker](https://help.blockstream.com/generate-recovery-phrase-offline-poker) - one 52-card deck without Jokers; return and shuffle after each draw. Printable with the card map is under Diceware
-  - [Piacentine](https://help.blockstream.com/generate-recovery-phrase-offline-piacentine) - one 40-card regional deck; return and shuffle after each draw
-  - [Tarot](https://help.blockstream.com/generate-recovery-phrase-offline-tarot) - one 78-card deck; return and shuffle after each draw
+  - these methods first convert their results to 11 bits:
+    - [Coin](https://help.blockstream.com/generate-recovery-phrase-offline-coin) - one coin; 11 flips per word
+    - [D6](https://help.blockstream.com/generate-recovery-phrase-offline-d6) - one d6; roll until you collect 11 bits per word
+    - [D8](https://help.blockstream.com/generate-recovery-phrase-offline-d8) - one d8; four rolls per word; keep the first 11 bits
+    - [Poker](https://help.blockstream.com/generate-recovery-phrase-offline-poker) - one 52-card deck without Jokers; use the card map; return each card and shuffle after each draw; printable guide under Diceware
+    - [Piacentine](https://help.blockstream.com/generate-recovery-phrase-offline-piacentine) - one 40-card regional deck; use the card map; return each card and shuffle after each draw
+    - [Tarot](https://help.blockstream.com/generate-recovery-phrase-offline-tarot) - one 78-card deck; use the card map; return each card and shuffle after each draw
 
 #### Diceware
 
 - [`diceware-d8-rudefox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d8-rudefox.pdf) - 3 pages, US Letter - [source](https://www.rudefox.io/custody/walkthrough/create-seed/lookup-tables.pdf)
-  - Eleven d8 rolls for each group of three provisional words; includes a 24-word worksheet
+  - eleven d8 rolls for each group of three provisional words; includes a 24-word worksheet
 - [`diceware-d6-veeb.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-veeb.pdf) - 4 pages, A4 - [source](https://raw.githubusercontent.com/veebch/Bip39-Dice/master/BIP39DiceManualCalculator.pdf)
-  - Eleven fair d6 rolls per provisional word; read odd as 0 and even as 1, then look up the bits
+  - eleven fair d6 rolls per provisional word; read odd as 0 and even as 1, then look up the bits
 - [`diceware-d6-bitbox.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-bitbox.pdf) - 4 pages, A4 - [source](https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf)
-  - One d6 and an optional coin; record five results from 1 to 4; reroll 5 or 6; then flip the coin or roll once more
-  - BitBox also publish [step-by-step instructions](https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf) for it
+  - one d6 and an optional coin; record five results from 1 to 4; reroll 5 or 6; then flip the coin or roll once more
+  - BitBox also publishes [step-by-step instructions](https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf)
 - [`diceware-d6-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-bitcoinkeys.pdf) - 4 pages, US Letter - [source](https://bitcoinkeys.guide/bip39-word-table.pdf)
-  - One d6 and one coin; keep five results from 1 to 4; reroll 5 or 6; then flip the coin once per provisional word
+  - one d6 and one coin; keep five results from 1 to 4; reroll 5 or 6; then flip the coin once per provisional word
   - [`diceware-d6-12w-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-12w-bitcoinkeys.pdf) - adds instructions and a worksheet for a 12-word phrase, 6 pages, US Letter - [source](https://bitcoinkeys.guide/roll-12-word-seed.pdf)
   - [`diceware-d6-24w-bitcoinkeys.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-24w-bitcoinkeys.pdf) - adds instructions and a worksheet for a 24-word phrase, 6 pages, US Letter - [source](https://bitcoinkeys.guide/roll-24-word-seed.pdf)
 - [`diceware-d6-taelfrinn.pdf`](wordlists/pdf/diceware/bip-39-diceware-d6-taelfrinn.pdf) - 3 pages, US Letter - [source](https://raw.githubusercontent.com/taelfrinn/Bip39-diceware/master/coin_plus_d6_bip39.pdf)
-  - Four d6 and one coin; roll all four dice and flip the coin once per provisional word; reroll excluded results
+  - four d6 and one coin; roll all four dice and flip the coin once per provisional word; reroll excluded results
 - [`diceware-poker-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-poker-blockstream.pdf) - 53 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-poker)
-  - One 52-card deck without Jokers; return and shuffle after each draw. Prints a card map and the binary table
+  - one 52-card deck without Jokers; return each card and shuffle after each draw; includes a card map and the binary table
 - [`diceware-d16-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream.pdf) - 51 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-d8-d16-d16)
-  - One d8 and two d16 dice; roll each die once per word
+  - one d8 and two d16 dice; roll each die once per word
 - [`diceware-d8-coin-blockstream.pdf`](wordlists/pdf/diceware/bip-39-diceware-d8-coin-blockstream.pdf) - 51 pages, A4 - [guide and print source](https://help.blockstream.com/generate-recovery-phrase-offline-d8-d8-d8-coin-coin)
-  - Three d8 dice and two coins; use each item once per word
+  - three d8 dice and two coins; roll each die once and flip each coin once per word
 - [`diceware-d16-blockstream-legacy.pdf`](wordlists/pdf/diceware/bip-39-diceware-d16-blockstream-legacy.pdf) - 17 pages, US Letter - [source](https://storage.googleapis.com/dxp-production-assets/content/blockstream-jade/add-more-security-functionality/create-a-recovery-phrase-using-dice/JadeDiceRollsGuide.pdf) - legacy Jade guide
-  - Two d16 and one d8; roll all three dice once for each of the first 11 or 23 words
+  - two d16 and one d8; roll all three dice once for each of the first 11 or 23 words
 
 #### Plain (no numbering)
 
